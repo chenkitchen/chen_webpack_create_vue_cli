@@ -7,6 +7,6 @@ new Vue({
     //组件
     components:{App},
     //模版
-    template:'<div><App><App/></div>'
+    template:'<div><App /></div>'
 })
 

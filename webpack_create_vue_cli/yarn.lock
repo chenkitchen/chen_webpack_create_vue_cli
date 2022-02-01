@@ -810,7 +810,7 @@
     "shebang-command" "^2.0.0"
     "which" "^2.0.1"
 
-"css-loader@*":
+"css-loader@*", "css-loader@^6.5.1":
   "integrity" "sha512-gEy2w9AnJNnD9Kuo4XAP9VflW/ujKoS9c/syO+uWMlm5igc7LysKzPXaDoR2vroROkSwsTS2tGr1yGGEbZOYZQ=="
   "resolved" "https://registry.npmjs.org/css-loader/-/css-loader-6.5.1.tgz"
   "version" "6.5.1"
@@ -2762,6 +2762,11 @@
   "integrity" "sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA=="
   "resolved" "https://registry.npmjs.org/strip-final-newline/-/strip-final-newline-2.0.0.tgz"
   "version" "2.0.0"
+
+"style-loader@^3.3.1":
+  "integrity" "sha512-GPcQ+LDJbrcxHORTRes6Jy2sfvK2kS6hpSfI/fXhPt+spVzxF6LJ1dHLN9zIGmVaaP044YKaIatFaufENRiDoQ=="
+  "resolved" "https://registry.npmjs.org/style-loader/-/style-loader-3.3.1.tgz"
+  "version" "3.3.1"
 
 "supports-color@^8.0.0":
   "integrity" "sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q=="

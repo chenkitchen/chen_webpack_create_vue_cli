@@ -9,7 +9,7 @@ module.exports = {
     // //入口文件
     // entry: "./src/components/test.js",    
     //入口文件
-    entry: "./src/main.js",
+    // entry: "./src/main.js",
     //打包输出的路径
     output: {
         //path: path.resolve(__dirname, "distTest"),
@@ -17,11 +17,11 @@ module.exports = {
         filename: "indexTest.js",
     },
      //loader 配置
-     module:{
-        rules:[
-            {test:/\.vue$/,use:["vue-loader"]}
-        ]
-    },
+    //  module:{
+    //     rules:[
+    //         {test:/\.vue$/,use:["vue-loader"]}
+    //     ]
+    // },
     plugins:[
         new HWP({
             //模版文件
