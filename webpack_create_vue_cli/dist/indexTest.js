@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_dist_vue_esm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue.esm */ \"./node_modules/vue/dist/vue.esm.js\");\n //引入vue的esm\nconst vm = new vue_dist_vue_esm__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n    el: \"#app\",\n    data: {},\n    components: {\n        //自己写的一个test 组件\n        test: {\n            data() {\n                return {\n                    tips: \"我在学前端vue\"\n                }\n            },\n            template: '<div>{{tips}}</div>' //组件模版内容\n        }\n    },\n    template: '<div> <test></test> </div>' //挂载 test 组件\n})\n\n\n\n//# sourceURL=webpack://webpack_create_vue_cli/./src/components/test.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_dist_vue_esm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue.esm */ \"./node_modules/vue/dist/vue.esm.js\");\n //引入vue的esm\nconst vm = new vue_dist_vue_esm__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n    el: \"#app\",\n    data: {},\n    components: {\n        //自己写的一个test 组件\n        test: {\n            data() {\n                return {\n                    tips: \"我在学前端vue和webpack创建项目\"\n                }\n            },\n            template: '<div>{{tips}}</div>' //组件模版内容\n        }\n    },\n    template: '<div> <test></test> </div>' //挂载 test 组件\n})\n\n\n\n//# sourceURL=webpack://webpack_create_vue_cli/./src/components/test.js?");
 
 /***/ })
 

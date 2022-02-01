@@ -1,6 +1,8 @@
 const path = require("path") //引入node 的path模块
-module.exports = {
-    //打包模式
+module.exports = (env)=>{
+    console.log('env',env);
+    return {
+        //打包模式
     mode: 'development', //none ：不压缩，development：开发模式打包，product:正式版压缩方式
     //入口文件
     entry: './src/components/test.js',
@@ -17,5 +19,6 @@ module.exports = {
         // contentBase:"./dist"//webpack4后失效由static代替
         static:'../webpack_create_vue_cli',
     }, 
+    }
 }
 

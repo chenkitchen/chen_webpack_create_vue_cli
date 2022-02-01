@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "test": "echo 'Error: no test specified' &amp;&amp; exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build1":"webpack --config ./config/webpack.development.js",
+    "build2":"webpack --config ./config/webpack.production.js"
   },
   "devDependencies": {
     "path": "^0.12.7",
