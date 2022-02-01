@@ -7,7 +7,7 @@ const vm = new VueTest({
         test: {
             data() {
                 return {
-                    tips: "我在学前端vue和webpack创建项目"
+                    tips: "我在学前端vue和webpack创建项目hahahahah"
                 }
             },
             template: '<div>{{tips}}</div>' //组件模版内容
