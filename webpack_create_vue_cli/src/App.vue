@@ -1,6 +1,12 @@
 <template>
     <div>
         <TestVue></TestVue>
+        <!--留坑，非常重要-->
+        <!-- <router-link to="/home" @click="sendQuery">go home</router-link>	 -->
+        <span @click="sendQuery">点击</span>
+        <!-- <router-link to="/hello">sey hello</router-link> -->
+        <span @click="sendParams">点击2</span>
+		<router-view></router-view>		
     </div>
 </template>
  
@@ -8,7 +14,24 @@
 //引入Test.vue 组件
 import TestVue from './components/Test.vue'
 export default {
-    components:{TestVue}
+    components:{TestVue},
+    data(){
+        return{
+            item:{"id":234343},
+        }
+    },
+    methods: {
+        sendQuery(){
+            this.$router.push({
+            path: '/home', query:{shopid: this.item.id}
+        });
+         },
+        sendParams(){
+            this.$router.push({
+                name: 'hello', params:{shopid: this.item.id}//只能是push name
+            });
+        }
+    },  
 }
 </script>
  

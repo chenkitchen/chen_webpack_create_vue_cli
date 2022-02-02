@@ -9,7 +9,7 @@
     "build1": "webpack --config ./config/webpack.development.js",
     "build2": "webpack --config ./config/webpack.production.js",
     "dev": "webpack-dev-server --config ./config/webpack.development.js --open",
-    "dev1":"webpack-dev-server --env development --open",
+    "dev1": "webpack-dev-server --env development --open",
     "build3": "webpack --env production"
   },
   "devDependencies": {
@@ -24,7 +24,9 @@
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "vue-html-loader": "^1.2.4",
+    "vue-i18n": "^8.27.0",
     "vue-loader": "^15.9.8",
+    "vue-router": "^3.5.3",
     "vue-template-compiler": "^2.6.14"
   }
 }
