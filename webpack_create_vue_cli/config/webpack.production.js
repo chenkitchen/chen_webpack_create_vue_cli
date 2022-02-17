@@ -1,6 +1,6 @@
-var HWP=require("html-webpack-plugin")
+// var HWP=require("html-webpack-plugin")
 //引入vue-loader 的插件 处理vue 的组件
-var VLP=require('vue-loader/lib/plugin')
+// var VLP=require('vue-loader/lib/plugin')
 console.log("这里是生产境的配置");
 const path = require("path"); //引入node 的path模块
 module.exports = {
@@ -22,14 +22,14 @@ module.exports = {
     //         {test:/\.vue$/,use:["vue-loader"]}
     //     ]
     // },
-    plugins:[
-        new HWP({
-            //模版文件
-            template:"index.html",            
-            //输出的文件名
-            filename:"index.html"
-        }),
-        new VLP()
-    ]
+    // plugins:[
+    //     new HWP({
+    //         //模版文件
+    //         template:"index.html",            
+    //         //输出的文件名
+    //         filename:"index.html"
+    //     }),
+    //     new VLP()
+    // ]
 };
 

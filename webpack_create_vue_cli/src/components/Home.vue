@@ -5,6 +5,9 @@
             <li>点击删除下面的水果</li>
             <li v-for="(item,index) in arr" :key=index @click="hidMy(item,arr)">{{item}}</li>
         </ul>
+        <div @click="toastSend">click my</div>
+        <div @click="toastSend1">click my1</div>
+        <el-button type="primary">默认按钮</el-button>
     </div>
 </template>
 
@@ -27,11 +30,18 @@
                         alert(item);
                     }
                 })
+            },
+            toastSend(){
+                this.$message({ message:'哈哈哈哈哈哈qqqqqqq',duration:500000});
+                // this.$toast("hahahhaahahha");
+            },
+            toastSend1(){
+                this.$toast("hahahhaahahha");
             }
         },
     }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 
 </style>

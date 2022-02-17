@@ -1,4 +1,8 @@
 const path = require("path") //引入node 的path模块
+//引入 html-webpack-plugin 插件，处理js，html，css 打包
+const HWP=require("html-webpack-plugin");
+const VLP=require('vue-loader/lib/plugin');//要在plugins中使用
+
 module.exports = (evn)=>{
     console.log('evn',evn);
     evn = evn || {}; 
@@ -17,7 +21,9 @@ module.exports = (evn)=>{
         rules:[
             {test:/\.vue$/,use:["vue-loader"]},
             //这儿要 注意 两个loader 的 顺序，【componse 组合函数，从右边往左边，要是pipe 函数就是 从左边往右边】
-            {test:/\.css$/,use:["style-loader","css-loader"]}
+            {test:/\.css$/,use:["style-loader","css-loader"]},
+            //less
+            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] }
         ]
     },
     performance: {
@@ -28,6 +34,15 @@ module.exports = (evn)=>{
                 return assetFilename.endsWith('.js');
         }
     },
+    plugins:[
+        new HWP({
+            //模版文件
+            template:'index.html',
+            //输出的文件名
+            filename:"index.html"
+        }),
+        new VLP()
+    ],
     // devServer:{
     //     //同package配置
     //     hot:true,

@@ -30,10 +30,13 @@
     }
 </script>
 
-<style  scoped>
+<style lang="less" scoped>
+.percent{
+    width: 100px;
+    height: 100px;
+}
 .topBar{
-    width:100px;
-    height:100px;
+    .percent;
     border:1px solid #ccc;
     background-image:linear-gradient(40deg, #99CC33 25%, #FF6666 25%,#336699 25%,#FF0033 25%);
 }
@@ -41,8 +44,7 @@
     margin:100px auto;
 }
 .linearBar{
-    width:100px;
-    height:100px;
+    .percent;
     border:1px solid #ccc;
     background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
 /*********************************偏向角度,起始点颜色,终止点颜色***************/
@@ -65,8 +67,7 @@
     background-color: #5cb85c;box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);
 }
 .progress-bar-striped{
-    width:100px;
-    height:100px;
+   .percent;
     border:1px solid #ccc;
     background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
     background-size:40px 40px;
