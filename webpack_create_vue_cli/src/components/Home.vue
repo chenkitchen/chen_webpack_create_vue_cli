@@ -5,7 +5,7 @@
             <li>点击删除下面的水果</li>
             <li v-for="(item,index) in arr" :key=index @click="hidMy(item,arr)">{{item}}</li>
         </ul>
-        <div @click="toastSend">click my</div>
+        <div @click="toastSend">一个使用extend的组件</div>
         <div @click="toastSend1">click my1</div>
         <el-button type="primary">默认按钮</el-button>
     </div>
