@@ -7,11 +7,12 @@
         </ul>
         <div @click="toastSend">一个使用extend的组件</div>
         <div @click="toastSend1">click my1</div>
-        <el-button type="primary">默认按钮</el-button>
+        <el-button type="primary" @click="send">默认按钮</el-button>
     </div>
 </template>
 
 <script>
+    import {tooltip} from "./tooltip/tooltip"
     export default {
         data() {
             return {
@@ -37,6 +38,12 @@
             },
             toastSend1(){
                 this.$toast("hahahhaahahha");
+            },
+            send(){
+                console.log('执行啦啦啦啦阿拉');
+                tooltip({
+                        isShowing: true
+                    })
             }
         },
     }

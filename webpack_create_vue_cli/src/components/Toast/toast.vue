@@ -9,8 +9,13 @@
 export default {
     data () {
         return {
-            temp1 : "你好vbyzc"
+            show:true,
+            temp1 : "你好vbyzc",
+            duration: 2000
         }
+    },
+    mounted(){
+        setTimeout(() => { this.show = false }, this.duration)
     }
 }
 </script>

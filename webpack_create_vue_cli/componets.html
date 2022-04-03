@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <textarea name="" id="" cols="30" rows="10" v-model="content"></textarea>
+        <button @click="run">运行代码</button>
+    </div>
+    <div id="show"></div>
+    <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                content:""
+            },
+            methods: {
+                getTarget(type){
+                    const reg = new RegExp(`<${type}[^>]*>`);
+                    let content =  this.content;
+                    let metach = content.match(reg);
+                    if(metach){
+                        console.log(metach[0]);
+                        let start = content.indexOf(metach[0])+metach[0].length;
+                        let end  = content.lastIndexOf(`</${type}`);
+                        console.log(start,end,content.slice(start,end));
+                        return content.slice(start,end);
+                    }
+                },
+                run(){
+                    if(!document.getElementById("show"))return;
+                    let template1 =  this.getTarget("template");
+                    let script1= this.getTarget("script").replace(/export default/,"return");
+                    let style =  this.getTarget("style");
+                    // console.log(template1,script1,style);
+                    let obj = Function(script1)();//生成一个对象
+                    obj.template = template1;//给这个对象添加template属性
+
+                    console.log(obj);
+                    let childComponet = Vue.extend(obj);
+                    //添加样式
+                    let styleDom  = document.createElement("style");
+                    styleDom.append(style);
+                    document.body.appendChild(styleDom);
+                    new childComponet().$mount("#show");
+                },
+            },
+        })
+    </script>
+</body>
+</html>

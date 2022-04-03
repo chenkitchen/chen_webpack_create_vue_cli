@@ -10,15 +10,15 @@ import Hello from './components/Hello.vue';
 import HomeSon from './components/HomeSon.vue';
 import toastRegistry from "./components/Toast/toast_index.js";
 import message from './components/messagem/index'
-Vue.prototype.$message= message;
+// Vue.prototype.$message= message;
 
-Vue.use(ElementUI);
-// Vue.use(message);
+// Vue.use(ElementUI);
+Vue.use(message);
 Vue.use(VueI18n) // 通过插件的形式挂载
 Vue.use(VueRouter);//挂载属性
 Vue.use(toastRegistry);
 
-const toast = new toastRegistry();
+// const toast = new toastRegistry();
 const i18n = new VueI18n({
     locale: 'zh-CN',    // 语言标识
     //this.$i18n.locale // 通过切换locale的值来实现语言切换
