@@ -2,13 +2,15 @@
     <div v-if="isShowing" id="box">
         一个弹窗组件
         <button @click="toggleShow">关闭</button>
+        <button @click="close">另一个关闭</button>
     </div>
 </template>
 
 <script>
-    
+    import {toggle} from './mixins.js'
     export default {
-        name:'tooltip'
+        name:'tooltip',
+        mixins:[toggle],
     }
         
     
