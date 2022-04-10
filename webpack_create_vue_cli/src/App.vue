@@ -12,7 +12,7 @@
  
 <script>
 //引入Test.vue 组件
-import TestVue from './components/Test.vue'
+import TestVue from '@com/Test.vue'
 export default {
     components:{TestVue},
     data(){

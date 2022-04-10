@@ -2,6 +2,7 @@
     <div v-if="isShowing" id="box">
         一个弹窗组件
         <button @click="toggleShow">关闭</button>
+        <span>{{msg}}</span>
         <button @click="close">另一个关闭</button>
     </div>
 </template>
@@ -11,6 +12,11 @@
     export default {
         name:'tooltip',
         mixins:[toggle],
+        data(){
+            return {
+                message:'',
+            }
+        }
     }
         
     

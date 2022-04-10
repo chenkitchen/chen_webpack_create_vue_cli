@@ -8,11 +8,14 @@
         <div @click="toastSend">一个使用extend的组件</div>
         <div @click="toastSend1">click my1</div>
         <el-button type="primary" @click="send">默认按钮</el-button>
+        <el-button type="primary" @click="sendMsg">查看class</el-button>
+        <div id="MyMessage"></div>
     </div>
 </template>
 
 <script>
     import {tooltip} from "./tooltip/tooltip"
+    import MyMsg from './msg/classMsg'
     export default {
         data() {
             return {
@@ -44,6 +47,10 @@
                 tooltip({
                         isShowing: true
                     })
+            },
+            sendMsg(){
+                let temp = new MyMsg();
+                temp.show()
             }
         },
     }

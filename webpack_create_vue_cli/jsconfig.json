@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@com/*": [
+                "./src/components/*"
+            ],
+            "@c/*": [
+                "./src/common/*"
+            ]
+        }
+    }
+}
