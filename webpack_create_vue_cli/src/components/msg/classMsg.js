@@ -2,7 +2,7 @@ import MyMessage from './MyMessage.vue'
 class MyMsg{
     constructor(){
     }
-    show(){
+    show(){//这里可以结构一个对象，来让使用者传入参数:data={}
         let message = new MyMessage({
             el:'#MyMessage',
             data() {
@@ -72,8 +72,7 @@ class MyMsg{
                 }
               }
         })
-        let temp = Vue.extend(message)
-        temp.$mount()
+       return message
     }
 }
 window.MyMsg = MyMsg
