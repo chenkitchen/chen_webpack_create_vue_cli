@@ -3,7 +3,7 @@ class MyMsg{
     constructor(){
         // this.show(true)
     }
-    show(){
+    show(){//这里可以结构一个对象，来让使用者传入参数:data={}
         let message = new MyMessage({
             el:'#MyMessage',
             data(data) {
@@ -74,8 +74,8 @@ class MyMsg{
                 }
               }
         })
-        document.body.appendChild(message.$el)//自动增加挂载点
-        return message;
+       document.body.appendChild(message.$el)
+       return message
     }
 }
 window.MyMsg = MyMsg
