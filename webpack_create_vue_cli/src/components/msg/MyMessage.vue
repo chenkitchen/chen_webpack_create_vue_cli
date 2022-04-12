@@ -1,12 +1,5 @@
 <template>
-  <!-- <transition
-    @before-enter="beforeEnter"
-    @enter="enter"
-    @leave="leave"
-    @before-leave="beforeLeave"
-    @after-leave="afterLeave"
-  > -->
-    <div v-show="showMessage" ref="msg" class="message-box wrap" >
+    <div v-if="showMessage" ref="msg" class="message-box wrap" >
       <p class="message">
         <!-- <svg-icon class-name="icon" :icon-class="'m-'+type" /> -->
         <span>{{ message }}</span>
@@ -17,7 +10,8 @@
 </template>
  
 <script>
-export default {}
+import Vue from 'vue';
+export default Vue.extend({})
  
 </script>
 <style scoped  lang="less"> 

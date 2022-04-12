@@ -1,15 +1,16 @@
 import MyMessage from './MyMessage.vue'
 class MyMsg{
     constructor(){
+        // this.show(true)
     }
     show(){
         let message = new MyMessage({
             el:'#MyMessage',
-            data() {
+            data(data) {
                 return {
-                  showMessage: false, // 是否显示信息
+                  showMessage: data, // 是否显示信息
                   type: '', // info success warning error 默认info
-                  message: '',
+                  message: 'hahahahah',
                   offset: '30', // top偏移量 单位px
                   showClose: true, // 是否显示关闭按钮
                   duration: 3000, // 信息停留时间 ms
@@ -18,11 +19,12 @@ class MyMsg{
                 }
               },
               mounted() {
-                this.init()
+                // this.init()
+                // this.close()
               },
               methods: {
                 init() {
-                  this.showMessage = true
+                //   this.showMessage = true
                   this.close()
                 },
                 // 关闭信息
@@ -72,8 +74,8 @@ class MyMsg{
                 }
               }
         })
-        let temp = Vue.extend(message)
-        temp.$mount()
+        document.body.appendChild(message.$el)//自动增加挂载点
+        return message;
     }
 }
 window.MyMsg = MyMsg

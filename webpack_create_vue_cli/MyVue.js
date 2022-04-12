@@ -128,3 +128,48 @@ function Compile(el, vm) {
 // function fn1(){
 //     console.log('dom2执行啦');
 // }
+let obj = {
+    a:100
+}
+function fn(b,event){
+    console.log(b,event);
+    this.a += b; 
+    console.log(this);
+}
+let ele = document.getElementById('app');
+// ele.onclick = fn.bind(obj,200);
+// ele.onclick=fn.apply(obj,[200]);
+// ele.onclick = function(){
+//     fn.call(obj,200)
+// }
+
+function bind(fn,obj,...arg){
+    return function(){
+        
+        fn.apply(obj,arg);
+    }
+}
+// setTimeout(bind(fn,obj,100),1000);
+
+// console.log(fn instanceof Function);//ture
+
+// console.log(Function.prototype);
+
+(function(proto){
+    function bind(context){//添加默认值，window
+        var context = context || window;//兼容低版本
+        var arg = Array.prototype.splice.apply(arguments,[1]);
+        let _this = this;
+        return function proxy(){
+            var event = [].splice.apply(arguments,[0]);
+            console.log('自己的方法执行');
+            var arr = arg.concat(event);
+            _this.apply(obj,arr);
+        }
+    }
+    proto.bind = bind;//赋盖给原型上的方法
+})(Function.prototype)
+
+fn.bind(obj,1);
+
+ele.onclick = fn.bind(obj,200);

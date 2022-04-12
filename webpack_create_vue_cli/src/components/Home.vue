@@ -9,7 +9,7 @@
         <div @click="toastSend1">click my1</div>
         <el-button type="primary" @click="send">默认按钮</el-button>
         <el-button type="primary" @click="sendMsg">查看class</el-button>
-        <div id="MyMessage"></div>
+        <!-- <div id="MyMessage"></div> -->
     </div>
 </template>
 
@@ -50,7 +50,7 @@
             },
             sendMsg(){
                 let temp = new MyMsg();
-                temp.show()
+                temp.show(true)
             }
         },
     }
