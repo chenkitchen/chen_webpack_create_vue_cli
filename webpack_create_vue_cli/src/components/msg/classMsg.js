@@ -72,6 +72,7 @@ class MyMsg{
                 }
               }
         })
+       document.body.appendChild(message.$el)
        return message
     }
 }
