@@ -4,6 +4,7 @@
         <div class='btns'>
             <button @click='create'>动态添加项</button>
         </div>
+        <div id="testProps"></div>
     </div>
 </template>
 <script>
@@ -20,7 +21,8 @@ export default {
             //     div.className = 'item';
             // let render = document.createElement('div');
             let myComponent = Vue.extend(user);
-            new myComponent({
+            console.log(myComponent);
+            const instance = new myComponent({
                 // data () {
                 //     // 无法传递
                 //     _test_: 'test data'
@@ -37,9 +39,11 @@ export default {
             }).$mount();
             // div.appendChild(render);
             // this.list.appendChild(div);
-            document.body.appendChild(myComponent.$el);
+            // document.body.appendChild(myComponent.$el);
             // return myComponent
-            return myComponent.$el;
+            // return myComponent.$el;
+            // console.log(instance.$el);
+            document.querySelector("#testProps").appendChild(instance.$el);
         } , 
         find () {
                 console.log('nihao');
