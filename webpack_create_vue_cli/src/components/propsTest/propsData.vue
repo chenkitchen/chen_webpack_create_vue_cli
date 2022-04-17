@@ -17,16 +17,16 @@ export default {
     } , 
     methods: {
         create () {
-            // let div = document.createElement('div');
-            //     div.className = 'item';
-            // let render = document.createElement('div');
+            let div = document.createElement('div');
+            div.className = 'item';
+            let render = document.createElement('div');
             let myComponent = Vue.extend(user);
             console.log(myComponent);
             const instance = new myComponent({
-                // data () {
-                //     // 无法传递
-                //     _test_: 'test data'
-                // } , 
+                data () {
+                    // 无法传递
+                    _test_: 'test data'
+                } , 
                 propsData: {
                     // 可以传递，而官网解释说，该属性主要用于测试
                     // 无语了 ... 
@@ -37,13 +37,13 @@ export default {
                     find: this.find
                 }
             }).$mount();
-            // div.appendChild(render);
-            // this.list.appendChild(div);
+            div.appendChild(render);
+            this.list.appendChild(div);
             // document.body.appendChild(myComponent.$el);
             // return myComponent
             // return myComponent.$el;
             // console.log(instance.$el);
-            document.querySelector("#testProps").appendChild(instance.$el);
+            document.querySelector(".item").appendChild(instance.$el);
         } , 
         find () {
                 console.log('nihao');

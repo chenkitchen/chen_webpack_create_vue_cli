@@ -18,6 +18,8 @@ export default {
              console.log(this._test_); // undefined
              console.log(this.__id__); // testid
              console.log(this.find); // undefined 
+             console.log(this.$props);
+             console.log(this.$data);
          });
     }
 };
