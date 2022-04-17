@@ -2,6 +2,7 @@ const path = require("path") //引入node 的path模块
 //引入 html-webpack-plugin 插件，处理js，html，css 打包
 const HWP = require("html-webpack-plugin");
 const VLP = require('vue-loader/lib/plugin');//要在plugins中使用
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = (evn) => {
     console.log('evn', evn);
@@ -48,7 +49,8 @@ module.exports = (evn) => {
                 //输出的文件名
                 filename: "index.html"
             }),
-            new VLP()
+            new VLP(),
+            new BundleAnalyzerPlugin()  // 使用默认配置
         ],
         // devServer:{
         //     //同package配置
