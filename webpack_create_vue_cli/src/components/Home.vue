@@ -11,6 +11,7 @@
     <div @click="toastSend1">click my1</div>
     <el-button type="primary" @click="send">默认按钮</el-button>
     <el-button type="primary" @click="sendMsg">查看class</el-button>
+    <PropsData/>
     <!-- <div id="MyMessage"></div> -->
   </div>
 </template>
@@ -19,12 +20,16 @@
 import { tooltip } from "./tooltip/tooltip";
 import MyMsg from "./msg/classMsg";
 import PromiseA from "@c/myPromise.js";
+import PropsData from "@com/propsTest/propsData.vue"
 export default {
   data() {
     return {
       show: "",
       arr: ["apple", "peach", "banana", "oriange", "grape"],
     };
+  },
+  components:{
+      PropsData
   },
   mounted() {
     this.show = this.$route.query.shopid;
