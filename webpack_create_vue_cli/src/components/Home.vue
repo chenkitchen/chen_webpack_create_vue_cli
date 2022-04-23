@@ -59,7 +59,9 @@ export default {
       // this.$toast("hahahhaahahha");
     },
     toastSend1() {
-      this.$toast("hahahhaahahha");
+      this.$toast("hahahhaahahha",function(text){
+        console.log("获取js中的值",text);
+      });
     },
     send() {
       console.log("执行啦啦啦啦阿拉");

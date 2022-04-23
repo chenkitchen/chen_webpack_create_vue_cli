@@ -2,6 +2,7 @@
     <div class="wrap" v-if="show">
         <div>{{text}}</div>
         <div>{{temp1}}</div>
+        <button @click="useCallback(temp1)">回调</button>
     </div>
 </template>
 
@@ -11,11 +12,16 @@ export default {
         return {
             show:true,
             temp1 : "你好vbyzc",
-            duration: 2000
+            duration: 2000,
         }
     },
     mounted(){
         setTimeout(() => { this.show = false }, this.duration)
+    },
+    methods:{
+        useCallback(text){
+            this.callback(text);
+        },
     }
 }
 </script>

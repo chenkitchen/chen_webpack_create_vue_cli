@@ -49,6 +49,12 @@ module.exports = (evn) => {
                 //输出的文件名
                 filename: "index.html"
             }),
+            new HWP({
+                //模版文件
+                template: 'transtion.html',
+                //输出的文件名
+                filename: "index1.html"
+            }),
             new VLP(),
             new BundleAnalyzerPlugin()  // 使用默认配置
         ],
