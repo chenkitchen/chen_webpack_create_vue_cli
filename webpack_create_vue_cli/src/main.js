@@ -12,6 +12,9 @@ import toastRegistry from "./components/Toast/toast_index.js";
 import message from './components/messagem/index'
 // Vue.prototype.$message= message;
 
+
+import Store from './store'//引入自己公共store
+
 // Vue.use(ElementUI);
 Vue.use(message);
 Vue.use(VueI18n) // 通过插件的形式挂载
@@ -61,6 +64,8 @@ const router = new VueRouter({
 //     template:'<div><App /></div>'
 // })
 new Vue({
+    name:'main',
+    Store,//会给当前的每个vue实例添加$Store
     render: h => h(App),i18n,router,
   }).$mount('#app')
   
