@@ -15,7 +15,7 @@ import message from './components/messagem/index'
 
 import Store from './store'//引入自己公共store
 
-// Vue.use(ElementUI);
+Vue.use(ElementUI);
 Vue.use(message);
 Vue.use(VueI18n) // 通过插件的形式挂载
 Vue.use(VueRouter);//挂载属性

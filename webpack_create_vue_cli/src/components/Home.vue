@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     这是home <span>{{ show }}</span>
     <ul>
       <li>点击删除下面的水果</li>
@@ -20,12 +20,13 @@
 import { tooltip } from "./tooltip/tooltip";
 import MyMsg from "./msg/classMsg";
 import PromiseA from "@c/myPromise.js";
-import PropsData from "@com/propsTest/propsData.vue"
+import PropsData from "@com/propsTest/propsData.vue";
+import './home.css'
 export default {
   data() {
     return {
       show: "",
-      arr: ["apple", "peach", "banana", "oriange", "grape"],
+      arr: ["apple", "peach", "banana", "oriange", "grape",'kkkk'],
     };
   },
   components:{
@@ -78,4 +79,9 @@ export default {
 </script>
 
 <style  scoped>
+.box{
+  background: gray;
+  color: white;
+  font-size: 100;
+}
 </style>
