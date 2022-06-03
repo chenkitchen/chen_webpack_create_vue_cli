@@ -14,7 +14,7 @@ module.exports = {
     output: {
         //path: path.resolve(__dirname, "distTest"),
         path: path.resolve(__dirname, "../build"),
-        filename: "indexTest.js",
+        filename: "js/[name].js",
     },
      //loader 配置
     //  module:{

@@ -3,7 +3,7 @@ module.exports ={
         //打包模式
     //mode: 'development', //none ：不压缩，development：开发模式打包，product:正式版压缩方式
     //入口文件
-    entry: './src/main.js',
+    // entry: './src/main.js',
     //打包输出的路径
     // output: {
     //     // path: path.resolve(__dirname, "distTest"),

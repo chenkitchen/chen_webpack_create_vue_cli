@@ -9,7 +9,7 @@
     "build1": "webpack --env development",
     "build2": "webpack --config ./config/webpack.production.js",
     "dev": "webpack-dev-server --config ./config/webpack.development.js --open",
-    "dev1": "webpack-dev-server --env development --open",
+    "dev1": "webpack-dev-server --env development",
     "build3": "webpack --env production",
     "devLog": "webpack --config webpack.config.js --progress"
   },
