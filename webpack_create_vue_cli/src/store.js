@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from '../../vuex'//引用自定义vuex
+import Vuex from './vuex'//引用自定义vuex
 
 Vue.use(Vuex,'123开始vuex')
 
