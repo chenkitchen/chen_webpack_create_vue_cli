@@ -3,7 +3,15 @@ class MyMsg{
     constructor(){
         // this.show(true)
     }
+    creatDom(){
+      if(!document.getElementById('MyMessage')){
+        let dom = document.createElement('div');
+        dom.id='MyMessage';
+        document.body.appendChild(dom)
+      }      
+    }
     show(){//这里可以结构一个对象，来让使用者传入参数:data={}
+        this.creatDom();
         let message = new MyMessage({
             el:'#MyMessage',
             data(data) {
