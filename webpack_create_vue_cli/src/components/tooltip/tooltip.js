@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import demo from './demo.vue'
+import {EventBus} from '../../bus.js'
 
 export var tooltip = (function(){
     
@@ -19,7 +20,10 @@ export var tooltip = (function(){
             methods:{
                 toggleShow() {
                     this.isShowing = !this.isShowing;
-                  }
+                  },
+                sendOptionsCom(){
+                    EventBus.$emit('fromComponets',this.sendMsg)
+                }
             }
         });
         document.body.appendChild(vm.$el)

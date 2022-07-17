@@ -1,4 +1,5 @@
 import MyMessage from './MyMessage.vue'
+import {EventBus} from '../../bus.js'
 class MyMsg{
     constructor(){
         // this.show(true)
@@ -29,8 +30,15 @@ class MyMsg{
               mounted() {
                 // this.init()
                 // this.close()
+                EventBus.$on('fromComponets',(msg)=>{
+                  console.log(msg);
+                  this.message = msg;
+                })
               },
               methods: {
+                cleanEven(){
+                  EventBus.$off('fromComponets')
+                },
                 init() {
                 //   this.showMessage = true
                   this.close()

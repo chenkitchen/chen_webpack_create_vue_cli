@@ -4,6 +4,7 @@
         <!-- <svg-icon class-name="icon" :icon-class="'m-'+type" /> -->
         <span>{{ message }}</span>
       </p>
+      <button @click="cleanEven">不再监听</button>
       <span v-if="showClose" @click="clickClose">X</span>
     </div>
   <!-- </transition> -->
