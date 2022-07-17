@@ -1,5 +1,6 @@
 <template>
   <div class="box">
+    <!-- <el-input v-model="homeInput" placeholder="请输入内容" ref="homeInputRef"></el-input> -->
     这是home <span>{{ show }}</span>
     <ul>
       <li>点击删除下面的水果</li>
@@ -11,6 +12,7 @@
     <div @click="toastSend1">click my1</div>
     <el-button type="primary" @click="send">默认按钮</el-button>
     <el-button type="primary" @click="sendMsg">查看class</el-button>
+    <el-input v-model="homeInputOptions" placeholder="另一个请输入内容"  v-focusMy></el-input>
     <PropsData/>
     <!-- <div id="MyMessage"></div> -->
   </div>
@@ -27,6 +29,8 @@ export default {
     return {
       show: "",
       arr: ["apple", "peach", "banana", "oriange", "grape",'kkkk'],
+      homeInput:'',
+      homeInputOptions:'',
     };
   },
   components:{
@@ -45,6 +49,7 @@ export default {
         console.log(err);
       }
     );
+    // this.$refs.homeInputRef.focus();
   },
   methods: {
     hidMy(ele, arr) {

@@ -12,6 +12,10 @@ import toastRegistry from "./components/Toast/toast_index.js";
 import message from './components/messagem/index'
 // Vue.prototype.$message= message;
 
+import directives from "./directives";
+Object.entries(directives).forEach(([id,define])=>{//枚举出键和值
+  Vue.directive(id,define);
+})
 
 import Store from './store'//引入自己公共store
 
