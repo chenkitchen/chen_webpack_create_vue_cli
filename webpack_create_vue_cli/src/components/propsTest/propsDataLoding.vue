@@ -3,7 +3,7 @@
     <div class="list"></div>
     <div class="btns">
       <button @click="create">动态添加项</button>
-      <div v-if="showNow">
+      <div v-loading="showNow" >
         <ul>
           <li v-for="(item, index) in datas" :key="item.id">
             <span>{{ `${index} : ${item.name}` }}</span>
@@ -28,30 +28,43 @@
 import Vue from "vue";
 import user from "./user.vue"; // user.vue 的内容如下，请查看
 export default {
-  props: ["sendData"],
+  props: ["sendData","showNows"],
   data() {
     return {
       showMy: true,
       datas: {},
-      showNow: false,
+      showNow: true,
     };
   },
   mounted() {
     this.container = this.$refs.container;
     this.list = this.container.getElementsByClassName("list")[0];
-    this.translateData();
+    this.datas = this.sendData;
+    // setTimeout(() => {
+      this.translateData();
+    // }, 3000);
+    
   },
   watch: {
-    sendData: {
-      handler: function (newVal, oldVal) {
-        console.log(newVal, oldVal);
-        if (JSON.stringify(newVal) != "{}") {
-          this.showNow = true;
+    // sendData: {
+    //   handler: function (newVal, oldVal) {
+    //     console.log(newVal, oldVal);
+    //     if (JSON.stringify(newVal) != "{}") {
+    //       this.showNow = true;
+    //       this.datas = this.sendData;
+    //     }
+    //   },
+    //   immediate: true,
+    // },
+    showNows:{
+      handler:function(newV,oldV){
+        if(newV != oldV){
           this.datas = this.sendData;
+          this.showNow = this.showNows
         }
       },
-      immediate: true,
-    },
+      immediate:true,
+    }
   },
   methods: {
     translateData() {

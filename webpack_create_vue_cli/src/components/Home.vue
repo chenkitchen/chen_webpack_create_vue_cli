@@ -15,7 +15,7 @@
     <el-input v-model="homeInputOptions" placeholder="另一个请输入内容"  v-focusMy></el-input>
     <button @click="showPropsFun()">显示下面组件</button>
     <div v-if="showProps">
-        <PropsData :sendData="sendData" />
+        <PropsData :sendData="sendData" :showNows ="showNow" />
     </div>
     
     <!-- <div id="MyMessage"></div> -->
@@ -26,7 +26,7 @@
 import { tooltip } from "./tooltip/tooltip";
 import MyMsg from "./msg/classMsg";
 import PromiseA from "@c/myPromise.js";
-import PropsData from "@com/propsTest/propsData.vue";
+import PropsData from "@com/propsTest/propsDataLoding.vue";
 import './home.css'
 import axios from 'axios';
 export default {
@@ -38,6 +38,7 @@ export default {
       homeInputOptions:'',
       showProps:false,
       sendData:{},
+      showNow:true,
     };
   },
   components:{
@@ -71,7 +72,7 @@ export default {
         let allData = [...data.parent,...data.child];
         console.log(allData);
         this.sendData = allData;
-
+        this.showNow = false
       })
     },
     hidMy(ele, arr) {
