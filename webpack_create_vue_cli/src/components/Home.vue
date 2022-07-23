@@ -26,7 +26,8 @@
 import { tooltip } from "./tooltip/tooltip";
 import MyMsg from "./msg/classMsg";
 import PromiseA from "@c/myPromise.js";
-import PropsData from "@com/propsTest/propsDataLoding.vue";
+// import PropsData from "@com/propsTest/propsDataLoding.vue";
+import PropsData from "@com/propsTest/propsData.vue";
 import './home.css'
 import axios from 'axios';
 export default {
@@ -66,11 +67,8 @@ export default {
     },
     getData(){
       axios.get('http://localhost:3008/tree_data').then((res)=>{
-        console.log(res);
         let {data} = res;
-        console.log(data);
         let allData = [...data.parent,...data.child];
-        console.log(allData);
         this.sendData = allData;
         this.showNow = false
       })

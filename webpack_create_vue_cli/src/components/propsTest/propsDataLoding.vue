@@ -39,9 +39,8 @@ export default {
   mounted() {
     this.container = this.$refs.container;
     this.list = this.container.getElementsByClassName("list")[0];
-    this.datas = this.sendData;
     // setTimeout(() => {
-      this.translateData();
+      
     // }, 3000);
     
   },
@@ -61,6 +60,7 @@ export default {
         if(newV != oldV){
           this.datas = this.sendData;
           this.showNow = this.showNows
+          this.translateData();
         }
       },
       immediate:true,

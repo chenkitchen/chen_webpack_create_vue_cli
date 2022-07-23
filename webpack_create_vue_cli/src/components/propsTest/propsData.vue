@@ -39,7 +39,7 @@ export default {
   mounted() {
     this.container = this.$refs.container;
     this.list = this.container.getElementsByClassName("list")[0];
-    this.translateData();
+    // this.translateData();
   },
   watch: {
     sendData: {
@@ -48,9 +48,10 @@ export default {
         if (JSON.stringify(newVal) != "{}") {
           this.showNow = true;
           this.datas = this.sendData;
+          this.translateData();
         }
       },
-      immediate: true,
+    //   immediate: true,
     },
   },
   methods: {
