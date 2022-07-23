@@ -13,7 +13,11 @@
     <el-button type="primary" @click="send">默认按钮</el-button>
     <el-button type="primary" @click="sendMsg">查看class</el-button>
     <el-input v-model="homeInputOptions" placeholder="另一个请输入内容"  v-focusMy></el-input>
-    <PropsData/>
+    <button @click="showPropsFun()">显示下面组件</button>
+    <div v-if="showProps">
+        <PropsData :sendData="sendData" />
+    </div>
+    
     <!-- <div id="MyMessage"></div> -->
   </div>
 </template>
@@ -24,6 +28,7 @@ import MyMsg from "./msg/classMsg";
 import PromiseA from "@c/myPromise.js";
 import PropsData from "@com/propsTest/propsData.vue";
 import './home.css'
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -31,6 +36,8 @@ export default {
       arr: ["apple", "peach", "banana", "oriange", "grape",'kkkk'],
       homeInput:'',
       homeInputOptions:'',
+      showProps:false,
+      sendData:{},
     };
   },
   components:{
@@ -50,8 +57,23 @@ export default {
       }
     );
     // this.$refs.homeInputRef.focus();
+    this.getData();
   },
   methods: {
+    showPropsFun(){
+      this.showProps = !this.showProps;
+    },
+    getData(){
+      axios.get('http://localhost:3008/tree_data').then((res)=>{
+        console.log(res);
+        let {data} = res;
+        console.log(data);
+        let allData = [...data.parent,...data.child];
+        console.log(allData);
+        this.sendData = allData;
+
+      })
+    },
     hidMy(ele, arr) {
       arr.map((item, index) => {
         if (ele === item) {

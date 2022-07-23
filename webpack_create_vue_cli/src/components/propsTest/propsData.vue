@@ -1,21 +1,34 @@
 <template>
-    <div ref='container' class='container'>
+    <div ref='container' class='container' v-if="showMy">
         <div class='list'></div>
         <div class='btns'>
             <button @click='create'>动态添加项</button>
+            <div>{{datas}}</div>
         </div>
         <div id="testProps"></div>
+        <button @click="close">关闭</button>
     </div>
 </template>
 <script>
 import Vue from 'vue';
 import user from './user.vue'; // user.vue 的内容如下，请查看
 export default {
+    props:['sendData'],
+    data(){
+        return {
+            showMy:true,
+            datas:{},
+        }
+    },
     mounted () {
         this.container = this.$refs.container;
         this.list = this.container.getElementsByClassName('list')[0];
+        this.datas = this.sendData;
     } , 
     methods: {
+        close(){
+            this.showMy = false;
+        },
         create () {
             let div = document.createElement('div');
             div.className = 'item';
