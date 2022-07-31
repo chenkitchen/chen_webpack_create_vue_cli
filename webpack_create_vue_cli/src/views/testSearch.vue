@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <header>TestSearch 测试ajax的abort取消请求</header>
     <div>
       <input
         type="text"

@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- <div>{{loaclData}}</div> -->
+    <header>TestAjax 测试取消请求</header>
     <button>点击</button>
     <ul v-if="loaclData">
       <li v-for="(val, keys, idx) in loaclData" :key="idx">

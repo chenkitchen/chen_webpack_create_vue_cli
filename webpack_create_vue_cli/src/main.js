@@ -14,6 +14,7 @@ import Temp from './views/temp.vue'
 import TestAjax from './views/testAjax.vue'
 import TestSearch from './views/testSearch.vue'
 import TestSearchAxios from './views/testSearchAxios.vue'
+import TestGenerator from './views/testGenerator.vue'
 
 // Vue.prototype.$message= message;
 
@@ -67,6 +68,9 @@ const router = new VueRouter({
     },
     {
       path:'/testSearch1',name:'testSearch1',component:TestSearchAxios,
+    },
+    {
+      path:'/testSearch2',name:'testSearch2',component:TestGenerator,
     },
   ]
 });

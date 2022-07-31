@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <header>testSearchAxios 测试取消请求</header>
     <div>
       <input
         type="text"
@@ -36,15 +37,12 @@ export default {
       }
       let CancelToken = axios.CancelToken;
       this.cancelToken = CancelToken.source();
-      const res = axios.get(
-        `http://127.0.0.1:3089/search`,
-        {
-          params: {
-            key: this.key,
-          },
-          cancelToken: this.cancelToken.token, // 传入cancelToken，使该请求可取消
-        }
-      );
+      const res = axios.get(`http://127.0.0.1:3089/search`, {
+        params: {
+          key: this.key,
+        },
+        cancelToken: this.cancelToken.token, // 传入cancelToken，使该请求可取消
+      });
 
       res
         .then((response) => {
