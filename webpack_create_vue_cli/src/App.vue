@@ -9,6 +9,7 @@
         <span @click="$router.push({path:'/temp',params:{key:'dfdsf'},query: {key: '12334'}})">点击3</span>
         <span @click="$router.push({path:'/testAjax',params:{key:'dfdsf'},query: {key: '12334'}})">点击4</span>
         <span @click="$router.push({path:'/testSearch',params:{key:'dfdsf'},query: {key: '12334'}})">点击5</span>
+        <span @click="$router.push({path:'/testSearch1',params:{key:'dfdsf'},query: {key: '12334'}})">点击6</span>
 		<router-view></router-view>		
     </div>
 </template>

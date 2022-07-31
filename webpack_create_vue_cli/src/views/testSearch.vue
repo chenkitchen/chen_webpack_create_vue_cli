@@ -23,12 +23,18 @@ export default {
     return {
       key: "",
       suggestList: [],
+      cancelToken:null,
+    //   xhr:null,
     };
   },
   methods: {
     getSuggest() {
       if (this.key == "") return;
+      if(this.cancelToken != null) {
+        this.cancelToken.abort()   
+      }
       const xhr = new XMLHttpRequest();
+      this.cancelToken = xhr;
       const url = `http://127.0.0.1:3089/search?key=${this.key}`;
       xhr.open("get", url);
       xhr.setRequestHeader("Content-type", "application/json;charset=utf-8");
@@ -37,6 +43,7 @@ export default {
         if (xhr.readyState == 4 && xhr.status == 200) {
           this.suggestList = JSON.parse(xhr.responseText);
           console.log(JSON.parse(this.suggestList));
+          this.cancelToken = null;
         }
       };
       xhr.send();
