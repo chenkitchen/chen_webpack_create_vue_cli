@@ -10,6 +10,7 @@ import Hello from './components/Hello.vue';
 import HomeSon from './components/HomeSon.vue';
 import toastRegistry from "./components/Toast/toast_index.js";
 import message from './components/messagem/index'
+import Temp from './views/temp.vue'
 // Vue.prototype.$message= message;
 
 import directives from "./directives";
@@ -50,6 +51,9 @@ const router = new VueRouter({
             // name:'detail',
             component: HomeSon
     }]
+    },
+    {
+      path:'/temp',name:'temp',component:Temp,
     }
   ]
 });

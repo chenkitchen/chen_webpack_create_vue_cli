@@ -6,6 +6,7 @@
         <span @click="sendQuery">点击</span>
         <!-- <router-link to="/hello">sey hello</router-link> -->
         <span @click="sendParams">点击2</span>
+        <span @click="$router.push({path:'/temp',params:{key:'dfdsf'},query: {key: '12334'}})">点击3</span>
 		<router-view></router-view>		
     </div>
 </template>
