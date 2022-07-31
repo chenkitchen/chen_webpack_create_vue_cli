@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <div>
-      <input type="text" v-model="key" @keyup="getSuggest" />
+      <input
+        type="text"
+        v-model="key"
+        @keyup="getSuggest"
+        onKeyPress="if((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46 || /\.\d\d$/.test(value))event.returnValue=false"
+      />
     </div>
     <div class="result">
       <div v-for="(item, index) in suggestList" :key="index">
@@ -12,8 +17,6 @@
 </template>
 
 <script>
-// import axios from "./api/axios";
-// import axios from "axios";
 export default {
   name: "App",
   data() {
@@ -23,26 +26,12 @@ export default {
     };
   },
   methods: {
-    //    getSuggest() {
-    //      const res = axios.get(`http://127.0.0.1:3000/search`, {
-    //        params: {
-    //          key: this.key,
-    //        },
-    //      });
-
-    //      res
-    //        .then((response) => {
-    //          console.log(response.data);
-    //          this.suggestList = response.data;
-    //        })
-    //        .catch((err) => {
-    //          console.log("11");
-    //        });
-    //    },
     getSuggest() {
+      if (this.key == "") return;
       const xhr = new XMLHttpRequest();
-      const url = "http://127.0.0.1:3089/search";
+      const url = `http://127.0.0.1:3089/search?key=${this.key}`;
       xhr.open("get", url);
+      xhr.setRequestHeader("Content-type", "application/json;charset=utf-8");
       xhr.onreadystatechange = () => {
         console.log(xhr.readyState);
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -51,17 +40,11 @@ export default {
         }
       };
       xhr.send();
-      // 使用 abort 方法取消重复请求
-      setTimeout(() => {
-        xhr.abort();
-      }, 1000);
     },
   },
 };
 </script>
 
-<style>
-</style>
 
 
 

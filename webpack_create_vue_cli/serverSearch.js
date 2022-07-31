@@ -11,6 +11,7 @@ app.get('/search', (req, res, next) => {
         { key: '春天的', result: ['春天的风', '春天的风景'] },
         { key: '春天的风', result: ['春天的风是醉人的', '春天的风是芳香的'] }
     ]
+    console.log(req.query.key);
     const key = req.query.key
 
     // 筛选
