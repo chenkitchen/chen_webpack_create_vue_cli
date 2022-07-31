@@ -11,6 +11,9 @@ import HomeSon from './components/HomeSon.vue';
 import toastRegistry from "./components/Toast/toast_index.js";
 import message from './components/messagem/index'
 import Temp from './views/temp.vue'
+import TestAjax from './views/testAjax.vue'
+import TestSearch from './views/testSearch.vue'
+
 // Vue.prototype.$message= message;
 
 import directives from "./directives";
@@ -54,7 +57,13 @@ const router = new VueRouter({
     },
     {
       path:'/temp',name:'temp',component:Temp,
-    }
+    },
+    {
+      path:'/testAjax',name:'testAjax',component:TestAjax,
+    },
+    {
+      path:'/testSearch',name:'testSearch',component:TestSearch,
+    },
   ]
 });
 

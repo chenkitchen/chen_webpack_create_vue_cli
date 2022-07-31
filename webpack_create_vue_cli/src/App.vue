@@ -7,6 +7,8 @@
         <!-- <router-link to="/hello">sey hello</router-link> -->
         <span @click="sendParams">点击2</span>
         <span @click="$router.push({path:'/temp',params:{key:'dfdsf'},query: {key: '12334'}})">点击3</span>
+        <span @click="$router.push({path:'/testAjax',params:{key:'dfdsf'},query: {key: '12334'}})">点击4</span>
+        <span @click="$router.push({path:'/testSearch',params:{key:'dfdsf'},query: {key: '12334'}})">点击5</span>
 		<router-view></router-view>		
     </div>
 </template>

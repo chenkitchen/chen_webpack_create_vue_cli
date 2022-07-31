@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "css-loader": "^6.5.1",
     "element-ui": "^2.15.6",
     "html-webpack-plugin": "^5.5.0",
