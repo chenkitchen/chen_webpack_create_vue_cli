@@ -3,6 +3,8 @@
     <header>TestGenerator 测试generator迭代器使用</header>
     <button @click="res.next()">点击调用generator</button>
     <div>{{ loaclNum }}</div>
+    <button @click="counter">test</button>
+    <button @click="clear">clear</button>
   </div>
 </template>
 
@@ -14,12 +16,29 @@ export default {
       loaclNum: 0,
       arr:['url','url1','url2'],
       res:null,
+      resG:null,
     };
   },
   mounted(){
     this.res = this.go()
+    this.resG = this.f()
   },
   methods: {
+    clear(){
+      this.resG.next(true)
+    },
+    counter(){
+      this.resG.next()
+    },
+    * f(){
+    for(let i = 0;true;i++){
+      console.log(i);
+      const reset = yield i;
+      if(reset){ 
+        i = -1;
+      }
+    }
+  },
     * go() {
         for(let i =0 ;i<this.arr.length;i++){
             yield this.req(this.arr[i])
