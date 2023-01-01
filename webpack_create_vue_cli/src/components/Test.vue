@@ -13,11 +13,11 @@
                 <li>{{ $t('m.download') }}</li>
             </ul>
         </div>
-        <div>
+        <div id="stude_vuex_box">
             <h2>学习使用watch监控vuex</h2>
             <div>{{ $store.state.age }}</div>
             <div>{{ age }}</div>
-            <button @click="changeAge">改变age</button>
+            <button @click="changeAge" id="stude_vuex_button">改变age</button>
         </div>
     </div>
 </template>
@@ -51,6 +51,11 @@ export default {
         '$store.state.age': function (val) {
             console.log('age的监控方式2', val);
         }
+    },
+    mounted() {
+        let box = document.getElementById('box'), ele = document.getElementById('stude_vuex_button');
+        console.log(box.contains(ele));//true
+        console.log(box, ele);
     }
 }
 </script>
