@@ -17,6 +17,7 @@
             <h2>学习使用watch监控vuex</h2>
             <div>{{ $store.state.age }}</div>
             <div>{{ age }}</div>
+            <button @click="changeAge">改变age</button>
         </div>
     </div>
 </template>
@@ -34,10 +35,22 @@ export default {
         changLang() {
             this.lang = this.lang === "zh-CN" ? "en-US" : "zh-CN";
             this.$i18n.locale = this.lang;
+        },
+        changeAge() {
+            let age = this.age
+            this.$store.commit('updateAge', ++age)
         }
     },
     computed: {
         ...mapState(['age']),
+    },
+    watch: {
+        age(val) {
+            console.log('age发生改变了', val);
+        },
+        '$store.state.age': function (val) {
+            console.log('age的监控方式2', val);
+        }
     }
 }
 </script>
