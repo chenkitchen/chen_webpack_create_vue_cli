@@ -10,7 +10,7 @@
                 <li>{{ $t('m.myMusic') }}</li>
                 <li>{{ $t('m.friend') }}</li>
                 <li>{{ $t('m.musician') }}</li>
-                <li>{{ $t('m.download') }}</li>
+                <li>{{ $t('m.download') }}<span>内的span</span></li>
             </ul>
         </div>
         <div id="stude_vuex_box">
@@ -71,6 +71,14 @@ export default {
 
 .navStyle {
     color: red;
+}
+
+.navStyle ul li:has(span) {
+    background: green;
+}
+
+.navStyle ul li:is(:nth-child(2), :nth-child(3)) {
+    color: gold;
 }
 </style>
 
