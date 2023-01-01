@@ -23,7 +23,7 @@ Object.entries(directives).forEach(([id,define])=>{//枚举出键和值
   Vue.directive(id,define);
 })
 
-import Store from './store'//引入自己公共store
+import store from './store'//引入自己公共store
 
 Vue.use(ElementUI);
 Vue.use(message);
@@ -90,7 +90,7 @@ const router = new VueRouter({
 // })
 new Vue({
     name:'main',
-    Store,//会给当前的每个vue实例添加$Store
+    store,//会给当前的每个vue实例添加$Store
     render: h => h(App),i18n,router,
   }).$mount('#app')
   
