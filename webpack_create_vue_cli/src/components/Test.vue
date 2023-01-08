@@ -19,6 +19,7 @@
             <div>{{ age }}</div>
             <button @click="changeAge" id="stude_vuex_button">改变age</button>
         </div>
+        <img src="/components/images/img1.png" alt="">
     </div>
 </template>
  

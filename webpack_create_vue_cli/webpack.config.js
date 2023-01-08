@@ -29,7 +29,9 @@ module.exports = (evn) => {
                 //这儿要 注意 两个loader 的 顺序，【componse 组合函数，从右边往左边，要是pipe 函数就是 从左边往右边】
                 { test: /\.css$/, use: ["style-loader", "css-loader"] },
                 //less
-                { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] }
+                { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+                {test:/.(png | jpg | gif | svg)$/, use:['url-loader']}
+
             ]
         },
         performance: {
