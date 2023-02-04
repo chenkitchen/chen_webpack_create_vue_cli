@@ -3,13 +3,18 @@
         <TestVue></TestVue>
         <!--留坑，非常重要-->
         <!-- <router-link to="/home" @click="sendQuery">go home</router-link>	 -->
-        <span id="span_dom" @click="sendQuery">点击</span>
+        <div class="placeholder"></div>
+        <span id="span_dom" @click="sendQuery">{{ differentClick[0] | myfilters(this) }}</span>
         <!-- <router-link to="/hello">sey hello</router-link> -->
-        <span id="span_dom_0" @click="sendParams">点击2</span>
+        <span id="span_dom_0" @click="sendParams">{{ differentClick[1] | myfilters(this) }}</span>
         <span id="span_dom_1"
-            @click="$router.push({ path: '/temp', params: { key: 'dfdsf' }, query: { key: '12334' } })">点击3</span>
+            @click="$router.push({ path: '/temp', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
+                differentClick[2] | myfilters(this)
+            }}</span>
         <span id="span_dom_2"
-            @click="$router.push({ path: '/testAjax', params: { key: 'dfdsf' }, query: { key: '12334' } })">点击4</span>
+            @click="$router.push({ path: '/testAjax', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
+                differentClick[3] | myfilters(this)
+            }}</span>
         <span id="span_dom_3"
             @click="$router.push({ path: '/testSearch', params: { key: 'dfdsf' }, query: { key: '12334' } })">点击5</span>
         <span id="span_dom_4"
@@ -28,6 +33,8 @@ export default {
     data() {
         return {
             item: { "id": 234343 },
+            differentClick: ['点击', '点击2', '点击3', '点击4'],
+            changeClick: ['点击改变了', '点击改变了2', '点击改变了3', '点击改变了4']
         }
     },
     methods: {
@@ -42,10 +49,24 @@ export default {
             });
         }
     },
+    filters: {
+        myfilters(val, that) {
+            if (that.differentClick.includes(val)) {
+                return that.changeClick[that.differentClick.indexOf(val)]
+            }
+            return val
+        }
+    }
 }
 </script>
  
 <style scoped>
+.placeholder {
+    width: 100%;
+    height: 30px;
+    background: gray;
+}
+
 span:not(#span_dom) {
     display: block;
     width: 200px;
