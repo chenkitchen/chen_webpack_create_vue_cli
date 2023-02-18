@@ -7,10 +7,9 @@
         <span id="span_dom" @click="sendQuery">{{ differentClick[0] | myfilters(this) }}</span>
         <!-- <router-link to="/hello">sey hello</router-link> -->
         <span id="span_dom_0" @click="sendParams">{{ differentClick[1] | myfilters(this) }}</span>
-        <span id="span_dom_1"
-            @click="$router.push({ path: '/temp', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
-                differentClick[2] | myfilters(this)
-            }}</span>
+        <span id="span_dom_1" @click="$router.push({ path: '/temp', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
+            differentClick[2] | myfilters(this)
+        }}</span>
         <span id="span_dom_2"
             @click="$router.push({ path: '/testAjax', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
                 differentClick[3] | myfilters(this)
@@ -22,6 +21,17 @@
         <span id="span_dom_5"
             @click="$router.push({ path: '/testSearch2', params: { key: 'dfdsf' }, query: { key: '12334' } })">点击7</span>
         <router-view></router-view>
+        <div class="test_class">这是一个测试dom</div>
+
+        <div v-is="'style'">
+            .test_class{color:red;}
+        </div>
+        <div v-is="'script'">
+            console.log('p')
+        </div>
+        <component is="style">
+            .test_class{color:red;}
+        </component>
     </div>
 </template>
  
