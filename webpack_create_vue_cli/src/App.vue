@@ -34,9 +34,9 @@
         </component>
         <el-button>默认按钮</el-button>
         <el-button type="danger" icon="el-icon-delete" circle></el-button>
-        <!-- <el-popover placement="top-start" title="标题" width="200" trigger="hover" content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"> -->
-        <button @click="showByClick" title="点击显示内容" @mouseover="hitTitle" @mouseleave="addTitle">点击显示内容</button>
-        <!-- </el-popover> -->
+        <el-popover placement="top-start" title="标题" width="200" trigger="hover" content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
+            <button @click="showByClick" title="点击显示内容" @mouseover="hitTitle" @mouseleave="addTitle">点击显示内容</button>
+        </el-popover>
 
         <el-tooltip effect="dark" :content="showByClickValue" placement="bottom-start">
             <div v-show="showByClickKey">{{ showByClickValue }}</div>
