@@ -13,9 +13,9 @@ module.exports = (evn) => {
         //入口文件
         // devtool:'source-map',
         entry: {
-            indexText:'./src/main.js',
-            messagem:'./src/components/messagem/index.js',
-            classMsg:'./src/components/msg/classMsg.js'
+            indexText: './src/main.js',
+            messagem: './src/components/messagem/index.js',
+            classMsg: './src/components/msg/classMsg.js'
         },
         //打包输出的路径
         // output: {
@@ -30,7 +30,7 @@ module.exports = (evn) => {
                 { test: /\.css$/, use: ["style-loader", "css-loader"] },
                 //less
                 { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
-                {test:/.(png | jpg | gif | svg)$/, use:['url-loader']}
+                { test: /.(png | jpg | gif | svg)$/, use: ['url-loader'] }
 
             ]
         },
@@ -43,7 +43,9 @@ module.exports = (evn) => {
             }
         },
         resolve: {
+            extensions: ['.js', '.vue', '.json'],
             alias: {
+                'vue$': 'vue/dist/vue.esm.js',
                 // 添加目录便于引用
                 '@com': path.resolve(__dirname, './src/components'),
                 '@c': path.resolve(__dirname, './src/common'),

@@ -34,23 +34,24 @@
         </component>
         <el-button>默认按钮</el-button>
         <el-button type="danger" icon="el-icon-delete" circle></el-button>
-        <el-tooltip effect="dark" content="Bottom Left 提示文字" placement="bottom-start">
-            <button @click="showByClick" title="点击显示内容" @mouseover="hitTitle" @mouseleave="addTitle">点击显示内容</button>
-        </el-tooltip>
+        <!-- <el-popover placement="top-start" title="标题" width="200" trigger="hover" content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"> -->
+        <button @click="showByClick" title="点击显示内容" @mouseover="hitTitle" @mouseleave="addTitle">点击显示内容</button>
+        <!-- </el-popover> -->
 
-        <el-tooltip v-if="showByClickKey" effect="dark" :content="showByClickValue" placement="bottom-start">
-            <div v-if="showByClickKey">{{ showByClickValue }}</div>
+        <el-tooltip effect="dark" :content="showByClickValue" placement="bottom-start">
+            <div v-show="showByClickKey">{{ showByClickValue }}</div>
         </el-tooltip>
     </div>
 </template>
  
 <script>
 import Vue from 'vue';
-import { Tooltip } from 'element-ui';
+import { Tooltip, Popover } from 'element-ui';
 //引入Test.vue 组件
 import TestVue from '@com/Test.vue'
 
 Vue.use(Tooltip);
+Vue.use(Popover);
 export default {
     components: { TestVue },
     data() {
@@ -64,11 +65,11 @@ export default {
     },
     methods: {
         hitTitle(e) {
-            console.log(e);
+            // console.log(e);
             e.relatedTarget.removeAttribute('title')
         },
         addTitle(e) {
-            console.log(e);
+            // console.log(e);
             e.relatedTarget.setAttribute('title', '点击显示内容')
         },
         showByClick() {
