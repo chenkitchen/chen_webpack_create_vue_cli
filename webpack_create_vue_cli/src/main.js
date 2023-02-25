@@ -19,8 +19,8 @@ import TestGenerator from './views/testGenerator.vue'
 // Vue.prototype.$message= message;
 
 import directives from "./directives";
-Object.entries(directives).forEach(([id,define])=>{//枚举出键和值
-  Vue.directive(id,define);
+Object.entries(directives).forEach(([id, define]) => {//枚举出键和值
+  Vue.directive(id, define);
 })
 
 import store from './store'//引入自己公共store
@@ -33,44 +33,46 @@ Vue.use(toastRegistry);
 
 // const toast = new toastRegistry();
 const i18n = new VueI18n({
-    locale: 'zh-CN',    // 语言标识
-    //this.$i18n.locale // 通过切换locale的值来实现语言切换
-    messages: {
-      'zh-CN': require('./common/lang/zh'),   // 中文语言包
-      'en-US': require('./common/lang/en')    // 英文语言包
-    }
+  locale: 'zh-CN',    // 语言标识
+  //this.$i18n.locale // 通过切换locale的值来实现语言切换
+  messages: {
+    'zh-CN': require('./common/lang/zh'),   // 中文语言包
+    'en-US': require('./common/lang/en')    // 英文语言包
+  }
 })
 const router = new VueRouter({
-	//routes
-	routes: [
-	//一个个link对象
-    {path: '/home',name: 'app',component: Home,
-        children: [{
-            path: '/son',
-            component: HomeSon
-    }]
-    },
-    {path: '/hello',name: 'hello',component: Hello,
-        children: [{
-            path: '/son',
-            // name:'detail',
-            component: HomeSon
-    }]
+  //routes
+  routes: [
+    //一个个link对象
+    {
+      path: '/home', name: 'app', component: Home,
+      children: [{
+        path: '/son',
+        component: HomeSon
+      }]
     },
     {
-      path:'/temp',name:'temp',component:Temp,
+      path: '/hello', name: 'hello', component: Hello,
+      children: [{
+        path: '/son',
+        // name:'detail',
+        component: HomeSon
+      }]
     },
     {
-      path:'/testAjax',name:'testAjax',component:TestAjax,
+      path: '/temp', name: 'temp', component: Temp,
     },
     {
-      path:'/testSearch',name:'testSearch',component:TestSearch,
+      path: '/testAjax', name: 'testAjax', component: TestAjax,
     },
     {
-      path:'/testSearch1',name:'testSearch1',component:TestSearchAxios,
+      path: '/testSearch', name: 'testSearch', component: TestSearch,
     },
     {
-      path:'/testSearch2',name:'testSearch2',component:TestGenerator,
+      path: '/testSearch1', name: 'testSearch1', component: TestSearchAxios,
+    },
+    {
+      path: '/testSearch2', name: 'testSearch2', component: TestGenerator,
     },
   ]
 });
@@ -89,8 +91,8 @@ const router = new VueRouter({
 //     template:'<div><App /></div>'
 // })
 new Vue({
-    name:'main',
-    store,//会给当前的每个vue实例添加$Store
-    render: h => h(App),i18n,router,
-  }).$mount('#app')
-  
+  name: 'main',
+  store,//会给当前的每个vue实例添加$Store
+  render: h => h(App), i18n, router,
+}).$mount('#app')
+

@@ -23,31 +23,57 @@
         <router-view></router-view>
         <div class="test_class">这是一个测试dom</div>
 
-        <div v-is="'style'">
+        <!-- <div v-is="'style'">
             .test_class{color:red;}
         </div>
         <div v-is="'script'">
             console.log('p')
-        </div>
+        </div> -->
         <component is="style">
             .test_class{color:red;}
         </component>
+        <el-button>默认按钮</el-button>
+        <el-button type="danger" icon="el-icon-delete" circle></el-button>
+        <el-tooltip effect="dark" content="Bottom Left 提示文字" placement="bottom-start">
+            <button @click="showByClick" title="点击显示内容" @mouseover="hitTitle" @mouseleave="addTitle">点击显示内容</button>
+        </el-tooltip>
+
+        <el-tooltip v-if="showByClickKey" effect="dark" :content="showByClickValue" placement="bottom-start">
+            <div v-if="showByClickKey">{{ showByClickValue }}</div>
+        </el-tooltip>
     </div>
 </template>
  
 <script>
+import Vue from 'vue';
+import { Tooltip } from 'element-ui';
 //引入Test.vue 组件
 import TestVue from '@com/Test.vue'
+
+Vue.use(Tooltip);
 export default {
     components: { TestVue },
     data() {
         return {
             item: { "id": 234343 },
             differentClick: ['点击', '点击2', '点击3', '点击4', '点击5', '点击6', '点击7'],
-            changeClick: ['点击改变了', '点击改变了2', '点击改变了3', '点击改变了4', '点击改变了5', '点击改变了6', '点击改变了7']
+            changeClick: ['点击改变了', '点击改变了2', '点击改变了3', '点击改变了4', '点击改变了5', '点击改变了6', '点击改变了7'],
+            showByClickKey: false,
+            showByClickValue: '这是一段点击后才能看到的文本'
         }
     },
     methods: {
+        hitTitle(e) {
+            console.log(e);
+            e.relatedTarget.removeAttribute('title')
+        },
+        addTitle(e) {
+            console.log(e);
+            e.relatedTarget.setAttribute('title', '点击显示内容')
+        },
+        showByClick() {
+            this.showByClickKey = !this.showByClickKey
+        },
         sendQuery() {
             this.$router.push({
                 path: '/home', query: { shopid: this.item.id }
@@ -71,6 +97,10 @@ export default {
 </script>
  
 <style scoped>
+.test_hit_title {
+    pointer-events: none;
+}
+
 .placeholder {
     width: 100%;
     height: 30px;
