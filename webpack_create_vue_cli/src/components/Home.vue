@@ -12,12 +12,12 @@
     <div @click="toastSend1">click my1</div>
     <el-button type="primary" @click="send">默认按钮</el-button>
     <el-button type="primary" @click="sendMsg">查看class</el-button>
-    <el-input v-model="homeInputOptions" placeholder="另一个请输入内容"  v-focusMy></el-input>
+    <el-input v-model="homeInputOptions" placeholder="另一个请输入内容" v-focusMy></el-input>
     <button @click="showPropsFun()">显示下面组件</button>
     <div v-if="showProps">
-        <PropsData :sendData="sendData" :showNows ="showNow" />
+      <PropsData :sendData="sendData" :showNows="showNow" />
     </div>
-    
+
     <!-- <div id="MyMessage"></div> -->
   </div>
 </template>
@@ -26,24 +26,24 @@
 import { tooltip } from "./tooltip/tooltip";
 import MyMsg from "./msg/classMsg";
 import PromiseA from "@c/myPromise.js";
-// import PropsData from "@com/propsTest/propsDataLoding.vue";
-import PropsData from "@com/propsTest/propsData.vue";
+import PropsData from "@com/propsTest/propsDataLoding.vue";
+// import PropsData from "@com/propsTest/propsData.vue";
 import './home.css'
 import axios from 'axios';
 export default {
   data() {
     return {
       show: "",
-      arr: ["apple", "peach", "banana", "oriange", "grape",'kkkk'],
-      homeInput:'',
-      homeInputOptions:'',
-      showProps:false,
-      sendData:{},
-      showNow:true,
+      arr: ["apple", "peach", "banana", "oriange", "grape", 'kkkk'],
+      homeInput: '',
+      homeInputOptions: '',
+      showProps: false,
+      sendData: {},
+      showNow: true,
     };
   },
-  components:{
-      PropsData
+  components: {
+    PropsData
   },
   mounted() {
     this.show = this.$route.query.shopid;
@@ -62,13 +62,13 @@ export default {
     this.getData();
   },
   methods: {
-    showPropsFun(){
+    showPropsFun() {
       this.showProps = !this.showProps;
     },
-    getData(){
-      axios.get('http://localhost:3008/tree_data').then((res)=>{
-        let {data} = res;
-        let allData = [...data.parent,...data.child];
+    getData() {
+      axios.get('http://localhost:3008/tree_data').then((res) => {
+        let { data } = res;
+        let allData = [...data.parent, ...data.child];
         this.sendData = allData;
         this.showNow = false
       })
@@ -86,8 +86,8 @@ export default {
       // this.$toast("hahahhaahahha");
     },
     toastSend1() {
-      this.$toast("hahahhaahahha",function(text){
-        console.log("获取js中的值",text);
+      this.$toast("hahahhaahahha", function (text) {
+        console.log("获取js中的值", text);
       });
     },
     send() {
@@ -98,14 +98,14 @@ export default {
     },
     sendMsg() {
       let temp = new MyMsg();
-      temp.show(true);
+      temp.show('这是传入的一句话');
     },
   },
 };
 </script>
 
 <style  scoped>
-.box{
+.box {
   background: gray;
   color: white;
   font-size: 100;
