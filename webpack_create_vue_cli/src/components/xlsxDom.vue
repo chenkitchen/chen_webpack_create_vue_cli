@@ -103,8 +103,7 @@ export default {
             this.urlData = path
         },
         readXlsx() {
-            debugger
-            let workbook = XLSX.readFile(this.urlData);
+            let workbook = XLSX.readFile(this.urlData); //mac的路径和win的路径解析不一样，导致报错
             let sheetNames = workbook.SheetNames;
             // 获取第一个workSheet
             let sheet1 = workbook.Sheets[sheetNames[0]];
