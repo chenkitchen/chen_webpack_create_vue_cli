@@ -11,7 +11,7 @@ module.exports = (evn) => {
         //打包模式
         //mode: 'development', //none ：不压缩，development：开发模式打包，product:正式版压缩方式
         //入口文件
-        // devtool:'source-map',
+        // devtool: 'eval-source-map',
         entry: {
             indexText: './src/main.js',
             messagem: './src/components/messagem/index.js',

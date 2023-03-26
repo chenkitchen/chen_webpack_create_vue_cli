@@ -41,6 +41,7 @@
         <el-tooltip effect="dark" :content="showByClickValue" placement="bottom-start">
             <div v-show="showByClickKey">{{ showByClickValue }}</div>
         </el-tooltip>
+        <TestXlsx></TestXlsx>
     </div>
 </template>
  
@@ -49,11 +50,12 @@ import Vue from 'vue';
 import { Tooltip, Popover } from 'element-ui';
 //引入Test.vue 组件
 import TestVue from '@com/Test.vue'
+import TestXlsx from '@com/xlsxDom.vue'
 
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue },
+    components: { TestVue, TestXlsx },
     data() {
         return {
             item: { "id": 234343 },
