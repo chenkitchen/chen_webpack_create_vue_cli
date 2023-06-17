@@ -74,12 +74,18 @@ export default {
       })
     },
     hidMy(ele, arr) {
-      arr.map((item, index) => {
+      // arr.map((item, index) => { // map 中数组的长度发生改变
+      //   if (ele === item) {
+      //     arr.splice(index, 1);
+      //     alert(item);
+      //   }
+      // });
+      arr.forEach((item, idx) => {
         if (ele === item) {
-          arr.splice(index, 1);
-          alert(item);
+          arr.splice(idx, 1);
+          alert(item)
         }
-      });
+      })
     },
     toastSend() {
       this.$message({ message: "哈哈哈哈哈哈qqqqqqq", duration: 500000 });
