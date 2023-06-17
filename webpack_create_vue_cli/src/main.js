@@ -16,6 +16,8 @@ import TestSearch from './views/testSearch.vue'
 import TestSearchAxios from './views/testSearchAxios.vue'
 import TestGenerator from './views/testGenerator.vue'
 
+import { hasBtnPremission } from "./btnPremission";
+
 // Vue.prototype.$message= message;
 
 import directives from "./directives";
@@ -30,6 +32,9 @@ Vue.use(message);
 Vue.use(VueI18n) // 通过插件的形式挂载
 Vue.use(VueRouter);//挂载属性
 Vue.use(toastRegistry);
+
+
+Vue.prototype.$has = hasBtnPremission //挂载全局，自定义方法
 
 // const toast = new toastRegistry();
 const i18n = new VueI18n({

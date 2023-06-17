@@ -17,6 +17,7 @@
             <h2>学习使用watch监控vuex</h2>
             <div>{{ $store.state.age }}</div>
             <div>{{ age }}</div>
+            <!-- <button @click="changeAge" id="stude_vuex_button" v-if="$has('99999')">改变age</button> -->
             <button @click="changeAge" id="stude_vuex_button">改变age</button>
         </div>
         <img src="/components/images/img1.png" alt="">
@@ -38,6 +39,7 @@ export default {
             this.$i18n.locale = this.lang;
         },
         changeAge() {
+            if (!this.$has('999')) return //添加权限，没权限就不执行下面
             let age = this.age
             this.$store.commit('updateAge', ++age)
         }
