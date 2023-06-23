@@ -42,6 +42,7 @@
             <div v-show="showByClickKey">{{ showByClickValue }}</div>
         </el-tooltip>
         <TestXlsx></TestXlsx>
+        <PlayVideo></PlayVideo>
     </div>
 </template>
  
@@ -51,11 +52,12 @@ import { Tooltip, Popover } from 'element-ui';
 //引入Test.vue 组件
 import TestVue from '@com/Test.vue'
 import TestXlsx from '@com/xlsxDom.vue'
+import PlayVideo from '@com/PlayVideo.vue';
 
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue, TestXlsx },
+    components: { TestVue, TestXlsx, PlayVideo },
     data() {
         return {
             item: { "id": 234343 },

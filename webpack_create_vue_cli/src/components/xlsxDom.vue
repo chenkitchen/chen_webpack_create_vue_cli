@@ -135,7 +135,7 @@ export default {
 <style lang="less" scoped>
 #xlsxBox {
     width: 100%;
-    height: 200px;
+    height: 100%;
     display: flex;
     justify-items: center;
     align-items: center;

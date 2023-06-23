@@ -15,6 +15,8 @@ import TestAjax from './views/testAjax.vue'
 import TestSearch from './views/testSearch.vue'
 import TestSearchAxios from './views/testSearchAxios.vue'
 import TestGenerator from './views/testGenerator.vue'
+import videojs from "video.js";
+import "video.js/dist/video-js.css";
 
 import { hasBtnPremission } from "./btnPremission";
 
@@ -35,6 +37,7 @@ Vue.use(toastRegistry);
 
 
 Vue.prototype.$has = hasBtnPremission //挂载全局，自定义方法
+Vue.prototype.$video = videojs;
 
 // const toast = new toastRegistry();
 const i18n = new VueI18n({
