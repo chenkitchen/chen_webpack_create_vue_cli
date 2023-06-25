@@ -42,7 +42,10 @@
             <div v-show="showByClickKey">{{ showByClickValue }}</div>
         </el-tooltip>
         <TestXlsx></TestXlsx>
-        <PlayVideo></PlayVideo>
+        <!-- <PlayVideo></PlayVideo> -->
+        <el-alert>
+            <CountDown :endText="endText" :endTime="endTime" />
+        </el-alert>
     </div>
 </template>
  
@@ -53,18 +56,21 @@ import { Tooltip, Popover } from 'element-ui';
 import TestVue from '@com/Test.vue'
 import TestXlsx from '@com/xlsxDom.vue'
 import PlayVideo from '@com/PlayVideo.vue';
+import CountDown from '@com/CountDown.vue';
 
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue, TestXlsx, PlayVideo },
+    components: { TestVue, TestXlsx, PlayVideo, CountDown },
     data() {
         return {
             item: { "id": 234343 },
             differentClick: ['点击', '点击2', '点击3', '点击4', '点击5', '点击6', '点击7'],
             changeClick: ['点击改变了', '点击改变了2', '点击改变了3', '点击改变了4', '点击改变了5', '点击改变了6', '点击改变了7'],
             showByClickKey: false,
-            showByClickValue: '这是一段点击后才能看到的文本'
+            showByClickValue: '这是一段点击后才能看到的文本',
+            endText: '已过开标日期',
+            endTime: new Date('2023-06-25 16:44:41') - new Date()
         }
     },
     methods: {
