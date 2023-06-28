@@ -1,16 +1,16 @@
 <template>
     <div>
-        <TestVue></TestVue>
+        <!-- <TestVue></TestVue> -->
         <!--留坑，非常重要-->
         <!-- <router-link to="/home" @click="sendQuery">go home</router-link>	 -->
-        <div class="placeholder"></div>
-        <span id="span_dom" @click="sendQuery">{{ differentClick[0] | myfilters(this) }}</span>
+        <!-- <div class="placeholder"></div> -->
+        <!-- <span id="span_dom" @click="sendQuery">{{ differentClick[0] | myfilters(this) }}</span> -->
         <!-- <router-link to="/hello">sey hello</router-link> -->
-        <span id="span_dom_0" @click="sendParams">{{ differentClick[1] | myfilters(this) }}</span>
-        <span id="span_dom_1" @click="$router.push({ path: '/temp', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
+        <!-- <span id="span_dom_0" @click="sendParams">{{ differentClick[1] | myfilters(this) }}</span> -->
+        <!-- <span id="span_dom_1" @click="$router.push({ path: '/temp', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
             differentClick[2] | myfilters(this)
-        }}</span>
-        <span id="span_dom_2"
+        }}</span> -->
+        <!-- <span id="span_dom_2"
             @click="$router.push({ path: '/testAjax', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
                 differentClick[3] | myfilters(this)
             }}</span>
@@ -21,7 +21,7 @@
         <span id="span_dom_5"
             @click="$router.push({ path: '/testSearch2', params: { key: 'dfdsf' }, query: { key: '12334' } })">点击7</span>
         <router-view></router-view>
-        <div class="test_class">这是一个测试dom</div>
+        <div class="test_class">这是一个测试dom</div> -->
 
         <!-- <div v-is="'style'">
             .test_class{color:red;}
@@ -29,7 +29,7 @@
         <div v-is="'script'">
             console.log('p')
         </div> -->
-        <component is="style">
+        <!-- <component is="style">
             .test_class{color:red;}
         </component>
         <el-button>默认按钮</el-button>
@@ -41,13 +41,14 @@
         <el-tooltip effect="dark" :content="showByClickValue" placement="bottom-start">
             <div v-show="showByClickKey">{{ showByClickValue }}</div>
         </el-tooltip>
-        <TestXlsx></TestXlsx>
+        <TestXlsx></TestXlsx> -->
         <!-- <PlayVideo></PlayVideo> -->
-        <el-alert>
+        <!-- <el-alert>
             <CountDown :endText="endText" :endTime="endTime" />
         </el-alert>
-        <Menu></Menu>
-        <FollowUp title="新增跟进记录" />
+        <Menu></Menu> -->
+        <!-- <FollowUp title="新增跟进记录" type="" /> -->
+        <FollowUp title="确认完成" type="complete" />
     </div>
 </template>
  

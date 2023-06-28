@@ -20,6 +20,8 @@ import "video.js/dist/video-js.css";
 
 import { hasBtnPremission } from "./btnPremission";
 
+import './common/imgView.js'
+
 // Vue.prototype.$message= message;
 
 import directives from "./directives";
