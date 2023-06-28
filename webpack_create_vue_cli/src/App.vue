@@ -49,6 +49,7 @@
         <Menu></Menu> -->
         <!-- <FollowUp title="新增跟进记录" type="" /> -->
         <FollowUp title="确认完成" type="complete" />
+        <!-- <SelectBox /> -->
     </div>
 </template>
  
@@ -62,11 +63,12 @@ import PlayVideo from '@com/PlayVideo.vue';
 import CountDown from '@com/CountDown.vue';
 import Menu from '@com/Menu.vue';
 import FollowUp from '@com/FollowUp.vue';
+import SelectBox from '@com/SelectBox.vue';
 
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp },
+    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox },
     data() {
         return {
             item: { "id": 234343 },

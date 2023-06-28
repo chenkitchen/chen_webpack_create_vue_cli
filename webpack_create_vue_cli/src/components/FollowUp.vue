@@ -13,8 +13,12 @@
                 <div>{{ currentTime }}</div>
             </div>
             <div class="follow_type frame_box before" v-if="isComplete">
-                <div>结果类型</div>
-                <div>{{ currentTime }}</div>
+                <div>结果类型:</div>
+                <select v-model="followType">
+                    <option value="volvo">已成交</option>
+                    <option value="saab">无意愿</option>
+                    <option value="opel">其他</option>
+                </select>
             </div>
             <div class="follow_images frame_box" id="follow_up_img">
                 <div>{{ isComplete ? '上传凭证' : '上传图片' }}</div>
@@ -36,7 +40,7 @@
             </div>
             <Teleport :changeStart="isComplete" toId="show_message_id" beforeId="follow_up_img">
                 <div class="follow_log frame_box before">
-                    <div>{{ isComplete ? '跟进结果' : '记录' }}</div>
+                    <div>{{ isComplete ? '跟进结果:' : '记录' }}</div>
                     <textarea maxlength="1000" v-model="followLog"></textarea>
                 </div>
             </Teleport>
@@ -48,9 +52,10 @@
 </template>
 <script>
 import Teleport from './Teleport.vue'
+import SelectBox from './SelectBox.vue';
 export default {
     props: ['title', 'type'],
-    components: { Teleport },
+    components: { Teleport, SelectBox },
     provide() {
         return {
             parent: this,
@@ -65,6 +70,7 @@ export default {
             currentTime: new Date().toLocaleString(),
             imgurl: [],
             followLog: '',
+            followType: '',
         }
     },
     mounted() {
@@ -102,6 +108,7 @@ export default {
                 img.style.height = '50px';
                 img.style.border = '2px solid #ccc';
                 img.style.margin = '0 5px 5px 0';
+                img.className = 'uploadImg'
                 // preview.innerHTML = '';
                 parent.insertBefore(img, parent.children[0]);
                 let reader = new FileReader();
@@ -121,6 +128,7 @@ export default {
                 img.style.height = '50px';
                 img.style.border = '2px solid #ccc';
                 img.style.margin = '0 5px 5px 0';
+                img.className = 'uploadImg'
 
                 // img.setProperty('width', '50px')
                 // preview.innerHTML = '';
@@ -152,6 +160,15 @@ export default {
     }
 }
 </script>
+<style lang="less">
+.show_frame_box {
+    .uploadImg ::after {
+        content: 'x';
+
+    }
+
+}
+</style>
 <style lang="less" scoped>
 ul,
 li {
@@ -164,6 +181,12 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.flexS {
+    .center;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .flex-left {
@@ -242,6 +265,19 @@ li {
 
 .follow_type {
     flex-basis: 40%;
+    .flexS;
+
+    div {
+        &:first-child {
+            flex-basis: 30%;
+
+        }
+    }
+
+    select {
+        width: 100px;
+        height: 30px;
+    }
 }
 
 .follow_images {
@@ -261,6 +297,15 @@ li {
             width: 50px;
             height: 50px;
             border: 2px solid #cccccc;
+        }
+
+        .uploadImg ::after {
+            content: 'x';
+
+        }
+
+        img ::after {
+            content: 'x'
         }
     }
 
@@ -293,6 +338,8 @@ li {
 }
 
 .follow_log {
+    margin-bottom: 10px;
+
     div {
         &:first-child {
             height: 10%;
