@@ -48,8 +48,9 @@
         </el-alert>
         <Menu></Menu> -->
         <!-- <FollowUp title="新增跟进记录" type="" /> -->
-        <FollowUp title="确认完成" type="complete" />
+        <!-- <FollowUp title="确认完成" type="complete" /> -->
         <!-- <SelectBox /> -->
+        <Dispatch title="公司成员" />
     </div>
 </template>
  
@@ -64,11 +65,12 @@ import CountDown from '@com/CountDown.vue';
 import Menu from '@com/Menu.vue';
 import FollowUp from '@com/FollowUp.vue';
 import SelectBox from '@com/SelectBox.vue';
+import Dispatch from '@com/Dispatch.vue';
 
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox },
+    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox, Dispatch },
     data() {
         return {
             item: { "id": 234343 },
