@@ -1,9 +1,10 @@
 
 export default {
-    template: `<div>这是一个extend组件:{{nowTime}}</div>`,
+    template: `<div><div>这是一个extend组件:{{nowTime}}</div><div>{{sendTime}}</div></div>`,
+    props: ['sendTime'],
     data() {
         return {
-            nowTime: new Date().toLocaleDateString()
+            nowTime: new Date().toLocaleTimeString()
         }
     },
     destroyed: function () {

@@ -53,9 +53,9 @@
         <!-- <Dispatch title="公司成员" /> -->
         <!-- <CWD /> -->
         <!-- <CWDF /> -->
-        <!-- <DEMO_1 /> -->
-        <div id="containerExtend"></div>
-        <button @click="handlerClean">点击删除组件</button>
+        <!-- <DEMO_1 :sendTime="new Date().toLocaleTimeString()" /> -->
+        <!-- <div id="containerExtend"></div> -->
+        <!-- <button @click="handlerClean">点击删除组件</button> -->
     </div>
 </template>
  
