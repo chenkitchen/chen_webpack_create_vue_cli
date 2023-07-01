@@ -52,7 +52,10 @@
         <!-- <SelectBox /> -->
         <!-- <Dispatch title="公司成员" /> -->
         <!-- <CWD /> -->
-        <CWDF />
+        <!-- <CWDF /> -->
+        <!-- <DEMO_1 /> -->
+        <div id="containerExtend"></div>
+        <button @click="handlerClean">点击删除组件</button>
     </div>
 </template>
  
@@ -70,11 +73,12 @@ import SelectBox from '@com/SelectBox.vue';
 import Dispatch from '@com/Dispatch.vue';
 import CWD from '@com/countNumber/CWD.vue'
 import CWDF from '@com/countNumber/CWDF.vue'
+import DEMO_1 from '@com/extendDemo/demo/index'
 
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox, Dispatch, CWD, CWDF },
+    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox, Dispatch, CWD, CWDF, DEMO_1 },
     data() {
         return {
             item: { "id": 234343 },
@@ -83,10 +87,21 @@ export default {
             showByClickKey: false,
             showByClickValue: '这是一段点击后才能看到的文本',
             endText: '已过开标日期',
-            endTime: new Date('2023-06-25 16:44:41') - new Date()
+            endTime: new Date('2023-06-25 16:44:41') - new Date(),
+            innerComponents: null,
         }
     },
+    mounted() {
+        this.innerComponents = new DEMO_1().$mount('#containerExtend')
+    },
     methods: {
+        handlerClean() {
+            // DEMO_1.$destroy()
+
+            this.innerComponents.$destroy()
+            this.innerComponents = null
+            this.$forceUpdate()
+        },
         hitTitle(e) {
             // console.log(e);
             e.relatedTarget.removeAttribute('title')
