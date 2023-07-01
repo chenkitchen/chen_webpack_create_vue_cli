@@ -50,7 +50,9 @@
         <!-- <FollowUp title="新增跟进记录" type="" /> -->
         <!-- <FollowUp title="确认完成" type="complete" /> -->
         <!-- <SelectBox /> -->
-        <Dispatch title="公司成员" />
+        <!-- <Dispatch title="公司成员" /> -->
+        <!-- <CWD /> -->
+        <CWDF />
     </div>
 </template>
  
@@ -66,11 +68,13 @@ import Menu from '@com/Menu.vue';
 import FollowUp from '@com/FollowUp.vue';
 import SelectBox from '@com/SelectBox.vue';
 import Dispatch from '@com/Dispatch.vue';
+import CWD from '@com/countNumber/CWD.vue'
+import CWDF from '@com/countNumber/CWDF.vue'
 
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox, Dispatch },
+    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox, Dispatch, CWD, CWDF },
     data() {
         return {
             item: { "id": 234343 },
