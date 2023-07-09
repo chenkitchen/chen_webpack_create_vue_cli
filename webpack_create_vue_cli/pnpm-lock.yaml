@@ -19,6 +19,9 @@ dependencies:
   html-webpack-plugin:
     specifier: ^5.5.0
     version: 5.5.0(webpack@5.75.0)
+  sortablejs:
+    specifier: ^1.15.0
+    version: 1.15.0
   style-loader:
     specifier: ^3.3.1
     version: 3.3.1(webpack@5.75.0)
@@ -2982,6 +2985,10 @@ packages:
       faye-websocket: 0.11.4
       uuid: 8.3.2
       websocket-driver: 0.7.4
+
+  /sortablejs@1.15.0:
+    resolution: {integrity: sha512-bv9qgVMjUMf89wAvM6AxVvS/4MX3sPeN0+agqShejLU5z5GX4C75ow1O2e5k4L6XItUyAK3gH6AxSbXrOM5e8w==}
+    dev: false
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}

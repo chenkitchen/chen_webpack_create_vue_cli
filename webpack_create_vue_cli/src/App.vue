@@ -56,6 +56,13 @@
         <!-- <DEMO_1 :sendTime="new Date().toLocaleTimeString()" /> -->
         <!-- <div id="containerExtend"></div> -->
         <!-- <button @click="handlerClean">点击删除组件</button> -->
+        <!-- <div v-for="item in listAType" :key="item">
+            <div class="dataItem">
+                <a :href="'/HrUpgrade/home/job?id=' + item">测试</a>
+            </div>
+        </div>
+        <UploadOne /> -->
+        <DragDemo />
     </div>
 </template>
  
@@ -74,11 +81,13 @@ import Dispatch from '@com/Dispatch.vue';
 import CWD from '@com/countNumber/CWD.vue'
 import CWDF from '@com/countNumber/CWDF.vue'
 import DEMO_1 from '@com/extendDemo/demo/index'
+import UploadOne from '@com/upload/UploadOne.vue'
+import DragDemo from '@com/dragDemo/index.vue'
 
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox, Dispatch, CWD, CWDF, DEMO_1 },
+    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox, Dispatch, CWD, CWDF, DEMO_1, UploadOne, DragDemo },
     data() {
         return {
             item: { "id": 234343 },
@@ -89,10 +98,11 @@ export default {
             endText: '已过开标日期',
             endTime: new Date('2023-06-25 16:44:41') - new Date(),
             innerComponents: null,
+            listAType: [1, 2, 3, 4]
         }
     },
     mounted() {
-        this.innerComponents = new DEMO_1().$mount('#containerExtend')
+        // this.innerComponents = new DEMO_1().$mount('#containerExtend')
     },
     methods: {
         handlerClean() {
