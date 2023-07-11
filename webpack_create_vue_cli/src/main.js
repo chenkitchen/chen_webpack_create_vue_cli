@@ -37,6 +37,10 @@ Vue.use(VueI18n) // 通过插件的形式挂载
 Vue.use(VueRouter);//挂载属性
 Vue.use(toastRegistry);
 
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 Vue.prototype.$has = hasBtnPremission //挂载全局，自定义方法
 Vue.prototype.$video = videojs;
@@ -59,7 +63,8 @@ const router = new VueRouter({
       children: [{
         path: '/son',
         component: HomeSon
-      }]
+      }],
+      redirect: true
     },
     {
       path: '/hello', name: 'hello', component: Hello,

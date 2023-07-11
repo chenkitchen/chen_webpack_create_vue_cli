@@ -10,18 +10,18 @@
         <!-- <span id="span_dom_1" @click="$router.push({ path: '/temp', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
             differentClick[2] | myfilters(this)
         }}</span> -->
-        <!-- <span id="span_dom_2"
-            @click="$router.push({ path: '/testAjax', params: { key: 'dfdsf' }, query: { key: '12334' } })">{{
+        <span id="span_dom_2"
+            @click="$router.push({ path: '/testAjax', params: { key: 'dfdsf' }, query: { key: 'span_dom_2' } })">{{
                 differentClick[3] | myfilters(this)
             }}</span>
         <span id="span_dom_3"
-            @click="$router.push({ path: '/testSearch', params: { key: 'dfdsf' }, query: { key: '12334' } })">点击5</span>
+            @click="$router.push({ path: '/testSearch', params: { key: 'dfdsf' }, query: { key: 'span_dom_3' } })">点击5</span>
         <span id="span_dom_4"
-            @click="$router.push({ path: '/testSearch1', params: { key: 'dfdsf' }, query: { key: '12334' } })">点击6</span>
+            @click="$router.push({ path: '/testSearch1', params: { key: 'dfdsf' }, query: { key: 'span_dom_4' } })">点击6</span>
         <span id="span_dom_5"
-            @click="$router.push({ path: '/testSearch2', params: { key: 'dfdsf' }, query: { key: '12334' } })">点击7</span>
+            @click="$router.push({ path: '/testSearch2', params: { key: 'dfdsf' }, query: { key: 'span_dom_5' } })">点击7</span>
         <router-view></router-view>
-        <div class="test_class">这是一个测试dom</div> -->
+        <div class="test_class">这是一个测试dom</div>
 
         <!-- <div v-is="'style'">
             .test_class{color:red;}
@@ -62,7 +62,7 @@
             </div>
         </div>
         <UploadOne /> -->
-        <DragDemo />
+        <!-- <DragDemo /> -->
     </div>
 </template>
  
