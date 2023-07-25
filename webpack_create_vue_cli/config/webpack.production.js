@@ -3,8 +3,10 @@
 // var VLP=require('vue-loader/lib/plugin')
 console.log("这里是生产境的配置");
 const path = require("path"); //引入node 的path模块
+
+
 module.exports = {
-    devtool:'cheap-module-source-map',
+    devtool: 'cheap-module-source-map',
     //打包模式
     mode: "production", //none ：不压缩，development：开发模式打包，production:正式版压缩方式
     // //入口文件
@@ -17,20 +19,14 @@ module.exports = {
         path: path.resolve(__dirname, "../build"),
         filename: "js/[name].js",
     },
-     //loader 配置
+    //loader 配置
     //  module:{
     //     rules:[
     //         {test:/\.vue$/,use:["vue-loader"]}
     //     ]
     // },
-    // plugins:[
-    //     new HWP({
-    //         //模版文件
-    //         template:"index.html",            
-    //         //输出的文件名
-    //         filename:"index.html"
-    //     }),
-    //     new VLP()
+    // plugins: [
+
     // ]
 };
 

@@ -1,3 +1,4 @@
+// 已经失效，为了可拓展
 import Vue from 'vue'
 // import Vuex from './vuex'//引用自定义vuex
 import Vuex from 'vuex'

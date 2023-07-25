@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>1</title>
-  <style>
-    .fade-enter {
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><title>1</title><style>.fade-enter {
       opacity: 0;
     }
 
@@ -21,21 +15,7 @@
     .fade-leave-active {
       transition: opacity 1s;
       color: green;
-    }
-  </style>
-<script defer src="js/indexText.js"></script><script defer src="js/messagem.js"></script><script defer src="js/classMsg.js"></script></head>
-<body>
-
-<div id="app">
-  <transition name="fade">
-    <h2 v-if="show">{{message}}</h2>
-  </transition>
-  <button @click="btnClick">切换</button>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-  let vm = new Vue({
+    }</style><script defer="defer" src="js/indexText.js"></script><script defer="defer" src="js/messagem.js"></script><script defer="defer" src="js/classMsg.js"></script></head><body><div id="app"><transition name="fade"><h2 v-if="show">{{message}}</h2></transition><button @click="btnClick">切换</button></div><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><script>let vm = new Vue({
     el: "#app",
     data: {
       message:"hello",
@@ -46,9 +26,4 @@
         this.show = !this.show;
       }
     }
-  });
-</script>
-
-</body>
-</html>
-
+  });</script></body></html>

@@ -2,7 +2,9 @@
     <div>
         <!-- <TestVue></TestVue> -->
         <!--留坑，非常重要-->
-        <!-- <router-link to="/home" @click="sendQuery">go home</router-link>	 -->
+        <router-link to="/home" @click="sendQuery">go home</router-link>
+        <!-- 为什么 router-link失效了 TODO: -->
+        <span @click="$router.push({ path: '/home' })">跳转home</span>
         <!-- <div class="placeholder"></div> -->
         <!-- <span id="span_dom" @click="sendQuery">{{ differentClick[0] | myfilters(this) }}</span> -->
         <!-- <router-link to="/hello">sey hello</router-link> -->
@@ -18,8 +20,15 @@
             @click="$router.push({ path: '/testSearch', params: { key: 'dfdsf' }, query: { key: 'span_dom_3' } })">点击5</span>
         <span id="span_dom_4"
             @click="$router.push({ path: '/testSearch1', params: { key: 'dfdsf' }, query: { key: 'span_dom_4' } })">点击6</span>
-        <span id="span_dom_5"
-            @click="$router.push({ path: '/testSearch2', params: { key: 'dfdsf' }, query: { key: 'span_dom_5' } })">点击7</span>
+        <span id="span_dom_5" @click="$router.push({
+            path: '/testSearch2', params: { key: 'dfdsf' }, query: { key: 'span_dom_5' }, meta: { //不支持 TODO:
+                metaInfo: {
+                    title: '组件里面传入的title',
+                    keywords: '这是一个组件里的keywords',
+                    description: '这是一个组件里的des'
+                }
+            }
+        })">点击7</span>
         <router-view></router-view>
         <div class="test_class">这是一个测试dom</div>
 
@@ -103,6 +112,7 @@ export default {
     },
     mounted() {
         // this.innerComponents = new DEMO_1().$mount('#containerExtend')
+        // document.dispatchEvent(new Event('render-event'))
     },
     methods: {
         handlerClean() {
