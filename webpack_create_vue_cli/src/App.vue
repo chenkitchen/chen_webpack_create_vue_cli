@@ -3,7 +3,7 @@
         <!-- <TestVue></TestVue> -->
         <!--留坑，非常重要-->
         <router-link to="/home" @click="sendQuery">go home</router-link>
-        <!-- 为什么 router-link失效了 TODO: -->
+
         <span @click="$router.push({ path: '/home' })">跳转home</span>
         <!-- <div class="placeholder"></div> -->
         <!-- <span id="span_dom" @click="sendQuery">{{ differentClick[0] | myfilters(this) }}</span> -->
@@ -21,7 +21,7 @@
         <span id="span_dom_4"
             @click="$router.push({ path: '/testSearch1', params: { key: 'dfdsf' }, query: { key: 'span_dom_4' } })">点击6</span>
         <span id="span_dom_5" @click="$router.push({
-            path: '/testSearch2', params: { key: 'dfdsf' }, query: { key: 'span_dom_5' }, meta: { //不支持 TODO:
+            path: '/testSearch2', params: { key: 'dfdsf' }, query: { key: 'span_dom_5' }, meta: { //TODO:不支持 
                 metaInfo: {
                     title: '组件里面传入的title',
                     keywords: '这是一个组件里的keywords',

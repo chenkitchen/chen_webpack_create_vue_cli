@@ -76,7 +76,7 @@ const router = new VueRouter({
         path: '/son',
         component: HomeSon
       }],
-      redirect: false, //如果改成 true 里面的所有参数都失效 TODO:
+      redirect: false, //TODO:如果改成 true 里面的所有参数都失效 
       meta: {
         metaInfo: {
           title: '这是一个home',
@@ -114,6 +114,10 @@ const router = new VueRouter({
     {
       path: '/testSearch2', name: 'testSearch2', component: TestGenerator,
     },
+    { //重定向需要单独，配置一个对象
+      path: '',
+      redirect: "/home"
+    }
   ]
 });
 
