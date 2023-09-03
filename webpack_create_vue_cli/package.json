@@ -10,12 +10,13 @@
     "build2": "webpack --config ./config/webpack.production.js",
     "dev": "webpack-dev-server --config ./config/webpack.development.js --open",
     "dev1": "webpack-dev-server --env development",
-    "build3": "webpack --env production",
+    "build3": "cross-env NODE_ENV=production webpack --progress  --env production",
     "devLog": "webpack --config webpack.config.js --progress"
   },
   "devDependencies": {
     "bootstrap": "^5.1.3",
     "cli": "^1.0.1",
+    "cross-env": "5.2.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "path": "^0.12.7",

@@ -170,5 +170,11 @@ new Vue({
     }
   },
   render: h => h(App), i18n, router,
+  mounted() {
+    // You'll need this for renderAfterDocumentEvent.
+    setTimeout(() => {
+      document.dispatchEvent(new Event('render-event'))
+    }, 1000)
+  }
 }).$mount('#app')
 

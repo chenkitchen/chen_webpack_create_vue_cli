@@ -10,7 +10,7 @@ const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 module.exports = (evn) => {
     console.log('evn', evn);
     evn = evn || {};
-    return {
+    let obj = {
         //打包模式
         //mode: 'development', //none ：不压缩，development：开发模式打包，product:正式版压缩方式
         //入口文件
@@ -100,6 +100,23 @@ module.exports = (evn) => {
         // }, 
         ...(evn.development ? require("./config/webpack.development") : require("./config/webpack.production"))
     }
+    if (evn.production) {
+        obj.plugins.push(new PrerenderSPAPlugin({
+            staticDir: path.join(__dirname, 'build'),
+            routes: ['/', '/about', '/contact'],
+
+            renderer: new Renderer({
+                renderAfterTime: 1000,
+                inject: {
+                    foo: 'bar'
+                },
+                headless: true,
+                renderAfterDocumentEvent: 'render-event'
+            })
+        }))
+    }
+    return obj
 
 }
+
 
