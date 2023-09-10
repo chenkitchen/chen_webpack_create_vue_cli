@@ -1,5 +1,14 @@
 <template>
   <div class="box">
+    <div @click="toastSend" class="stickOut extend_box">一个使用extend的组件</div>
+    <div @click="toastSend1">click my1</div>
+    <el-button type="primary" @click="send" class="stick">默认按钮</el-button>
+    <el-button type="primary" @click="sendMsg" class="stick">查看class</el-button>
+    <el-input v-model="homeInputOptions" placeholder="另一个请输入内容" v-focusMy></el-input>
+    <button @click="showPropsFun()">显示下面组件</button>
+    <div v-if="showProps">
+      <PropsData :sendData="sendData" :showNows="showNow" />
+    </div>
     <!-- <el-input v-model="homeInput" placeholder="请输入内容" ref="homeInputRef"></el-input> -->
     这是home <span>{{ show }}</span>
     <ul>
@@ -8,16 +17,6 @@
         {{ item }}
       </li>
     </ul>
-    <div @click="toastSend">一个使用extend的组件</div>
-    <div @click="toastSend1">click my1</div>
-    <el-button type="primary" @click="send">默认按钮</el-button>
-    <el-button type="primary" @click="sendMsg">查看class</el-button>
-    <el-input v-model="homeInputOptions" placeholder="另一个请输入内容" v-focusMy></el-input>
-    <button @click="showPropsFun()">显示下面组件</button>
-    <div v-if="showProps">
-      <PropsData :sendData="sendData" :showNows="showNow" />
-    </div>
-
     <!-- <div id="MyMessage"></div> -->
   </div>
 </template>
@@ -112,8 +111,27 @@ export default {
 
 <style  scoped>
 .box {
-  background: gray;
+  background: linear-gradient(-90deg, #fff 0%, rgba(75, 76, 75, 0.5) 50%, rgba(75, 76, 75) 100%);
   color: white;
   font-size: 100;
+  height: 200px;
+  overflow: scroll;
+}
+
+.stick {
+  position: sticky;
+  top: 0px;
+}
+
+.extend_box {
+  width: 200px;
+  height: 30px;
+  background: linear-gradient(180deg, #fff 0%, rgba(204, 118, 209, 0.5) 50%, rgba(204, 118, 209) 100%);
+}
+
+.stickOut {
+  position: relative;
+  top: -20px;
+  left: 50%;
 }
 </style>
