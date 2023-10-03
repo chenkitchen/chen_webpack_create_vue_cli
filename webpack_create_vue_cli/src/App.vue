@@ -3,6 +3,15 @@
         <!-- <TestVue></TestVue> -->
         <!--留坑，非常重要-->
         <router-link to="/home" @click="sendQuery">go home</router-link>
+        <br />
+        <router-link to="/hello" @click="sendQuery">go hello</router-link>
+        <br />
+        <router-link to="/temp" @click="sendQuery">go temp</router-link>
+        <br />
+        <router-link to="/testAjax" @click="sendQuery">go testAjax</router-link>
+        <br />
+        <router-link to="/testSearch" @click="sendQuery">go testSearch</router-link>
+        <br />
 
         <span @click="$router.push({ path: '/home' })">跳转home</span>
         <!-- <div class="placeholder"></div> -->
@@ -96,7 +105,7 @@ import DragDemo from '@com/dragDemo/index.vue'
 Vue.use(Tooltip);
 Vue.use(Popover);
 export default {
-    components: { TestVue, TestXlsx, PlayVideo, CountDown, Menu, FollowUp, SelectBox, Dispatch, CWD, CWDF, DEMO_1, UploadOne, DragDemo },
+    components: { Menu, TestVue, TestXlsx, PlayVideo, CountDown, FollowUp, SelectBox, Dispatch, CWD, CWDF, DEMO_1, UploadOne, DragDemo },
     data() {
         return {
             item: { "id": 234343 },

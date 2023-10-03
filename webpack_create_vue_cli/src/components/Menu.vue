@@ -5,11 +5,12 @@
             {{
                 item.title
             }}
-            <template v-if="item?.children && menuItemState[i]">
-                <li v-for="(twoItem, twoI) in item.children" :key="`${i}-${twoI}`">
-                    {{ twoItem.title }}---{{ `${i}-${twoI}` }}
-                </li>
-            </template>
+            <!-- <div v-if="item?.children && menuItemState[i]"> -->
+            <!-- 编译不了这层？？ -->
+            <li v-for="(twoItem, twoI) in item.children" :key="`${i}-${twoI}`">
+                {{ twoItem.title }}---{{ `${i}-${twoI}` }}
+            </li>
+            <!-- </div> -->
         </ul>
     </div>
 </template>
