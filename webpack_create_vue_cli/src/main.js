@@ -16,6 +16,8 @@ import TestAjax from './views/testAjax.vue'
 import TestSearch from './views/testSearch.vue'
 import TestSearchAxios from './views/testSearchAxios.vue'
 import TestGenerator from './views/testGenerator.vue'
+import SortArr from './views/sortArr'
+
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 
@@ -113,6 +115,9 @@ const router = new VueRouter({
     },
     {
       path: '/testSearch2', name: 'testSearch2', component: TestGenerator,
+    },
+    {
+      path: '/SortArr', name: 'SortArr', component: SortArr,
     },
     { //重定向需要单独，配置一个对象
       path: '',
