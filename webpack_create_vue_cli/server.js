@@ -1,5 +1,7 @@
 let express = require('express');
 
+// import { RulesDate } from './date.js';
+
 let app = express();
 
 //跨域问题
@@ -23,6 +25,21 @@ app.get('/tree_data', (req, res) => {
         })
     }, 2500)
 })//创建一个get接口
+
+let RulesDate = {
+    responseCode: '000000',
+    responseMsg: null,
+    result: {
+        responseCode: '000000',
+        responseMsg: '已更新',
+        errorList: ['zhangsan']
+    }
+}
+
+app.post('/submitRules', (req, res) => {
+    res.json(RulesDate)
+})
+
 app.listen(3008, () => {
     console.log('local3008');
 })

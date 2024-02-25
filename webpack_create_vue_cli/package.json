@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "es",
   "scripts": {
     "test": "echo 'Error: no test specified' &amp;&amp; exit 1",
     "start": "webpack-dev-server",
