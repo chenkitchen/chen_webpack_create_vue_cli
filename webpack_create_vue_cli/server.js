@@ -36,8 +36,20 @@ let RulesDate = {
     }
 }
 
+let RulesList = {
+    result: {
+        tableDate: [
+            { name: 'lishi', rules: '01' }
+        ]
+    }
+}
+
 app.post('/submitRules', (req, res) => {
     res.json(RulesDate)
+})
+
+app.post('/rulesList', (req, res) => {
+    res.json(RulesList)
 })
 
 app.listen(3008, () => {
