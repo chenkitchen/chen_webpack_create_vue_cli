@@ -14,6 +14,8 @@
         <br />
         <router-link to="/SortArr">look arr sort</router-link>
         <br />
+        <router-link to="/Dynamic">Dynamic add</router-link>
+        <br />
 
         <span @click="$router.push({ path: '/home' })">跳转home</span>
         <!-- <div class="placeholder"></div> -->

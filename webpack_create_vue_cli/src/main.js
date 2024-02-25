@@ -17,6 +17,7 @@ import TestSearch from './views/testSearch.vue'
 import TestSearchAxios from './views/testSearchAxios.vue'
 import TestGenerator from './views/testGenerator.vue'
 import SortArr from './views/sortArr'
+import Dynamic from './views/dynamic'
 
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
@@ -118,6 +119,9 @@ const router = new VueRouter({
     },
     {
       path: '/SortArr', name: 'SortArr', component: SortArr,
+    },
+    {
+      path: '/Dynamic', name: 'Dynamic', component: Dynamic,
     },
     { //重定向需要单独，配置一个对象
       path: '',
