@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require("path") //引入node 的path模块
 //引入 html-webpack-plugin 插件，处理js，html，css 打包
 const HWP = require("html-webpack-plugin");
@@ -6,6 +7,9 @@ const VLP = require('vue-loader/lib/plugin');//要在plugins中使用
 
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
+
+// 解析 properties 文件
+// const PropertiesParser = require('properties-parser');
 
 module.exports = (evn) => {
     console.log('evn', evn);
@@ -18,7 +22,8 @@ module.exports = (evn) => {
         entry: {
             indexText: './src/main.js',
             messagem: './src/components/messagem/index.js',
-            classMsg: './src/components/msg/classMsg.js'
+            classMsg: './src/components/msg/classMsg.js',
+            test:'./src/views/dynamic/messages.properties'
         },
         //打包输出的路径
         // output: {
@@ -33,8 +38,8 @@ module.exports = (evn) => {
                 { test: /\.css$/, use: ["style-loader", "css-loader"] },
                 //less
                 { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
-                { test: /.(png | jpg | gif | svg)$/, use: ['url-loader'] }
-
+                { test: /.(png | jpg | gif | svg)$/, use: ['url-loader'] },
+                { test: /\.properties$/, use: ['raw-loader'] }
             ]
         },
         performance: {
@@ -55,6 +60,9 @@ module.exports = (evn) => {
             },
         },
         plugins: [
+            new webpack.ProvidePlugin({
+                $$:'properties-parser'
+            }),
             new HWP({
                 //模版文件
                 template: 'index.html',
