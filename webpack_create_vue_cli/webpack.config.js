@@ -61,7 +61,8 @@ module.exports = (evn) => {
         },
         plugins: [
             new webpack.ProvidePlugin({
-                $$:'properties-parser'
+                // $$:'properties-parser',
+                $:'jquery'
             }),
             new HWP({
                 //模版文件

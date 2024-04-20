@@ -104,6 +104,8 @@ export default {
     };
   },
   async mounted() {
+    let dom = $('.dynamic_container')
+    console.log(dom);
     let { data } = await axios.post("http://localhost:3008/rulesList");
     // console.log(data.result);
     this.tableDate = data.result.tableDate;
