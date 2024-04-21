@@ -13,7 +13,22 @@
       <el-table-column prop="rules" label="权限" min-width="180">
       </el-table-column>
     </el-table>
-    <link rel="resource" type="application/l10n" href="./viewer.properties">
+    <div class="mobile_audio">
+        <input type="text" placeholder="wav地址" v-model="localUrl">
+        <button @click="()=>payWav(localUrl)">点击播放</button>
+        <m-audio src="http://127.0.0.1:5503/staticResource/files/gr_syn138_woods_Dm.wav"></m-audio>
+        <!-- 设置为行类元素 默认是 block-->
+        <m-audio 
+            src="http://127.0.0.1:5503/staticResource/files/gr_syn138_woods_Dm.wav"
+            :block="true"
+        ></m-audio>
+        <m-audio 
+            v-if="localUrl"
+            :src="localUrl"
+            :block="true"
+        ></m-audio>
+    </div>
+    <link rel="resource" type="application/l10n" href="src/views/dynamic/viewer.properties">
     <!-- <div class="test_properties">
       <ul>
         <li>{{ t(printing_not_supported) }}</li>
@@ -30,7 +45,7 @@
       ></vue-pdf-app>
   </div>
 </template>
-<script>
+<script lang="js">
 import axios from "axios";
 // import properties from './messages.properties';
 // const PropertiesParser = require('properties-parser');
@@ -100,7 +115,8 @@ export default {
         secondaryToolbar: getSecondaryToolbar(),
         toolbar: getToolbar(),
         errorWrapper: true,
-      }
+      },
+      localUrl:''
     };
   },
   async mounted() {
@@ -108,7 +124,17 @@ export default {
     // console.log(data.result);
     this.tableDate = data.result.tableDate;
   },
+  watch:{
+    localUrl:function(newV,oldV){
+        console.log(newV);
+    }
+  },
   methods: {
+    payWav(src){
+        let signSucc = new Audio()
+        signSucc.src = src
+        signSucc.play()
+    },
     t(key) {
     //   return this.messages[key];
         return this.greeting[key]
@@ -127,4 +153,8 @@ export default {
   },
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+/deep/.x-audio-wrap{
+    border: 1px solid skyblue;
+}
+</style>
