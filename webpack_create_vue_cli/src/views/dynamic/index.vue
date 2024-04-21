@@ -22,7 +22,7 @@
                 <audio
                     src="http://127.0.0.1:5503/staticResource/files/gr_syn138_woods_Dm.wav"
                     controls
-                    class="audio4"
+                    class="local_audio_dom"
                     @play="play"
                     @pause="pause"
                     @seeking="seeking"
