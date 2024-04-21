@@ -38,6 +38,7 @@ module.exports = (evn) => {
                 { test: /\.css$/, use: ["style-loader", "css-loader"] },
                 //less
                 { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+                { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
                 { test: /.(png | jpg | gif | svg)$/, use: ['url-loader'] },
                 { test: /\.properties$/, use: ['raw-loader'] }
             ]

@@ -22,6 +22,8 @@ import Dynamic from './views/dynamic'
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 
+import audio from 'vue-mobile-audio'
+
 import { hasBtnPremission } from "./btnPremission";
 
 import './common/imgView.js'
@@ -42,6 +44,7 @@ Vue.use(VueI18n) // 通过插件的形式挂载
 Vue.use(VueRouter);//挂载属性
 Vue.use(toastRegistry);
 Vue.use(VueMeta)
+Vue.use(audio)
 
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) { //防止，点击相同的路径，会报错
