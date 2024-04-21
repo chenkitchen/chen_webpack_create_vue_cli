@@ -13,6 +13,23 @@
       <el-table-column prop="rules" label="权限" min-width="180">
       </el-table-column>
     </el-table>
+    <!-- 测试 音频组件 -->
+    <div class="local_audio">
+        <el-row>
+            <el-card class="card" :body-style="{ padding: '10px' }">
+                <div id="waveform" ref="waveform">
+                </div>
+            </el-card>
+        </el-row>
+        <div>
+            <el-button type="primary" @click="playMusic">
+            <i class="el-icon-video-play"></i>
+            播放 /
+            <i class="el-icon-video-pausee"></i>
+            暂停
+            </el-button>
+        </div>
+    </div>
     <link rel="resource" type="application/l10n" href="./viewer.properties">
     <!-- <div class="test_properties">
       <ul>
@@ -37,6 +54,10 @@ import axios from "axios";
 // const properties = require("properties");
 import VuePdfApp from 'vue-pdf-app'
 import 'vue-pdf-app/dist/icons/main.css'
+import WaveSurfer from 'wavesurfer.js'
+// 时间轴   
+import Timeline from 'wavesurfer.js/dist/plugins/timeline.js'
+// import Regions from 'wavesurfer.js/dist/plugins/regions.esm.js'
 const getSidebar = () => ({
   viewThumbnail: true,
   viewOutline: true,
@@ -100,15 +121,39 @@ export default {
         secondaryToolbar: getSecondaryToolbar(),
         toolbar: getToolbar(),
         errorWrapper: true,
-      }
+      },
+      wavesurfer: null,
     };
   },
   async mounted() {
+    this.newAudio()
     let { data } = await axios.post("http://localhost:3008/rulesList");
     // console.log(data.result);
     this.tableDate = data.result.tableDate;
   },
   methods: {
+    playMusic(){
+        //"播放/暂停"按钮的单击触发事件，暂停的话单击则播放，正在播放的话单击则暂停播放
+        this.wavesurfer.playPause.bind(this.wavesurfer)();
+    },
+    newAudio(){
+        this.$nextTick(() => {
+        this.wavesurfer = WaveSurfer.create({
+            container: this.$refs.waveform,
+            // waveColor: '#409EFF',
+            barWidth: 1,
+            cursorColor: "black",
+            progressColor: "blue",
+            backend: "MediaElement",
+            // mediaControls: false,
+            audioRate: "1",
+            //使用时间轴插件
+            plugins: [Timeline.create()]
+        });
+        // 特别提醒：此处需要使用require(相对路径)，否则会报错
+        this.wavesurfer.load("http://127.0.0.1:5503/staticResource/files/gr_syn138_woods_Dm.wav");
+        });
+    },
     t(key) {
     //   return this.messages[key];
         return this.greeting[key]
