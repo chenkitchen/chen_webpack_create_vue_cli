@@ -27,6 +27,20 @@
             :src="localUrl"
             :block="true"
         ></m-audio>
+        <button 
+            @click="()=>{
+                currentUrl = localUrl
+                showDialog = true
+            }"
+        >点击打开</button>
+        <WavPlay 
+        ref="wavPlayDom"
+          :localUrl="currentUrl"
+          :showDialog="showDialog"
+          @parentClose="()=>{
+            showDialog = false
+          }"    
+        />
     </div>
     <link rel="resource" type="application/l10n" href="src/views/dynamic/viewer.properties">
     <!-- <div class="test_properties">
@@ -52,6 +66,7 @@ import axios from "axios";
 // const properties = require("properties");
 import VuePdfApp from 'vue-pdf-app'
 import 'vue-pdf-app/dist/icons/main.css'
+import WavPlay from './comps/wavPlay.vue'
 const getSidebar = () => ({
   viewThumbnail: true,
   viewOutline: true,
@@ -102,8 +117,9 @@ const getToolbar = () => ({
 });
 
 export default {
-    components: {
-    VuePdfApp
+  components: {
+    VuePdfApp,
+    WavPlay
   },
   data() {
     return {
@@ -116,7 +132,9 @@ export default {
         toolbar: getToolbar(),
         errorWrapper: true,
       },
-      localUrl:''
+      localUrl:'',
+      currentUrl:'',
+      showDialog:false
     };
   },
   async mounted() {
