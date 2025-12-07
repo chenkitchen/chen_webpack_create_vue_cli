@@ -6,7 +6,7 @@ const path = require("path"); //引入node 的path模块
 
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
+    devtool: 'nosources-source-map',
     //打包模式
     mode: "production", //none ：不压缩，development：开发模式打包，production:正式版压缩方式
     // //入口文件

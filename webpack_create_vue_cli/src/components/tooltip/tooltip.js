@@ -2,6 +2,7 @@ import Vue from 'vue'
 import demo from './demo.vue'
 import {EventBus} from '../../bus.js'
 
+    
 export var tooltip = (function(){
     
     var defaults = {
@@ -30,3 +31,5 @@ export var tooltip = (function(){
     }
 
 })()//两个括号是让调用优先级恢复
+
+window.webpackTooltip = tooltip;

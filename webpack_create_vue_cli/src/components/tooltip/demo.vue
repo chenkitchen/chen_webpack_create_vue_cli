@@ -11,6 +11,7 @@
 </template>
 
 <script>
+    import {Input} from 'element-ui';
     import {toggle} from './mixins.js'
     export default {
         name:'tooltip',
@@ -20,20 +21,24 @@
                 message:'',
                 sendMsg:'',
             }
-        }
+        },
+        components:{
+            'el-input':Input
+        },
     }
         
     
 </script>
 
 <style  scoped>
+@import 'element-ui/lib/theme-chalk/index.css';
 #box{
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 200px;
-    height: 100px;
+    width: 600px;
+    height: 500px;
     background-color: pink;
     font-size: 20px;
 }
