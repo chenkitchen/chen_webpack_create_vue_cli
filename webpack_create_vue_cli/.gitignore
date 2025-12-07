@@ -4,3 +4,5 @@
 *.zip
 *.rar
 /build
+
+**/build

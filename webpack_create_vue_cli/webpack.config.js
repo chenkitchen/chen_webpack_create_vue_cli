@@ -5,8 +5,8 @@ const HWP = require("html-webpack-plugin");
 const VLP = require('vue-loader/lib/plugin');//要在plugins中使用
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const PrerenderSPAPlugin = require('prerender-spa-plugin')
-const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
+// const PrerenderSPAPlugin = require('prerender-spa-plugin')
+// const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 // 解析 properties 文件
 // const PropertiesParser = require('properties-parser');
@@ -20,10 +20,11 @@ module.exports = (evn) => {
         //入口文件
         // devtool: 'eval-source-map',
         entry: {
-            indexText: './src/main.js',
+            // indexText: './src/main.js',
             messagem: './src/components/messagem/index.js',
             classMsg: './src/components/msg/classMsg.js',
-            test:'./src/views/dynamic/messages.properties'
+            // test:'./src/views/dynamic/messages.properties',
+            tooltip:'./src/components/tooltip/tooltip.js'
         },
         //打包输出的路径
         // output: {
@@ -63,18 +64,18 @@ module.exports = (evn) => {
             new webpack.ProvidePlugin({
                 $$:'properties-parser'
             }),
-            new HWP({
-                //模版文件
-                template: 'index.html',
-                //输出的文件名
-                filename: "index.html"
-            }),
-            new HWP({
-                //模版文件
-                template: 'transtion.html',
-                //输出的文件名
-                filename: "index1.html"
-            }),
+            // new HWP({
+            //     //模版文件
+            //     template: 'index.html',
+            //     //输出的文件名
+            //     filename: "index.html"
+            // }),
+            // new HWP({
+            //     //模版文件
+            //     template: 'transtion.html',
+            //     //输出的文件名
+            //     filename: "index1.html"
+            // }),
             new VLP(),
             // new BundleAnalyzerPlugin()  // 使用默认配置
             // 在vue-cli生成的文件的基础上，只有下面这个才是我们要配置的
@@ -108,21 +109,21 @@ module.exports = (evn) => {
         // }, 
         ...(evn.development ? require("./config/webpack.development") : require("./config/webpack.production"))
     }
-    if (evn.production) {
-        obj.plugins.push(new PrerenderSPAPlugin({
-            staticDir: path.join(__dirname, 'build'),
-            routes: ['/', '/about', '/contact'],
+    // if (evn.production) {
+    //     obj.plugins.push(new PrerenderSPAPlugin({
+    //         staticDir: path.join(__dirname, 'build'),
+    //         routes: ['/', '/about', '/contact'],
 
-            renderer: new Renderer({
-                renderAfterTime: 1000,
-                inject: {
-                    foo: 'bar'
-                },
-                headless: true,
-                renderAfterDocumentEvent: 'render-event'
-            })
-        }))
-    }
+    //         renderer: new Renderer({
+    //             renderAfterTime: 1000,
+    //             inject: {
+    //                 foo: 'bar'
+    //             },
+    //             headless: true,
+    //             renderAfterDocumentEvent: 'render-event'
+    //         })
+    //     }))
+    // }
     return obj
 
 }
